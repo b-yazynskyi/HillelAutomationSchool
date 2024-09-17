@@ -4,12 +4,11 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        MathOperations mathOperator = new MathOperations();
 
         try {
             System.out.println("Введіть ціле число: ");
             int userNumber = scanner.nextInt();
-            int squareOfNumber = mathOperator.squareNumber(userNumber);
+            int squareOfNumber = MathOperations.squareNumber(userNumber);
             System.out.printf("Квадрат числа %d дорівнює %d%n", userNumber, squareOfNumber);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
@@ -23,7 +22,7 @@ public class Main {
             double userRadius = scanner.nextDouble();
             System.out.println("Введіть висоту циліндра: ");
             double userHigh = scanner.nextDouble();
-            double volumeOfCylinder = mathOperator.calculateVolumeOfCylinder(userRadius, userHigh);
+            double volumeOfCylinder = MathOperations.calculateVolumeOfCylinder(userRadius, userHigh);
 
             System.out.printf("Об'єм циліндра з радіусом %s і висотою %s дорівнює %s%n", userRadius, userHigh, volumeOfCylinder);
         } catch (IllegalArgumentException e) {
@@ -38,7 +37,7 @@ public class Main {
             int userA = scanner.nextInt();
             System.out.println("Введіть b ");
             int userB = scanner.nextInt();
-            int elevationOfNumber = mathOperator.elevationOfNumberToPower(userA, userB);
+            int elevationOfNumber = MathOperations.elevationOfNumberToPower(userA, userB);
             System.out.printf("Результат %s ^ %s дорівнює %s.", userA, userB, elevationOfNumber);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
