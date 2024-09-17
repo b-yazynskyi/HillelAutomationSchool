@@ -14,18 +14,28 @@ public class Main {
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         } catch (InputMismatchException e) {
-            System.out.println("Занадто велике число");
+            System.out.println("Некорретне значення");
             scanner.close();
         }
 
-        System.out.println("Введіть радіус циліндра: ");
+        try {
+            System.out.println("Введіть радіус циліндра: ");
+            double userRadius = scanner.nextDouble();
+            System.out.println("Введіть висоту циліндра: ");
+            double userHigh = scanner.nextDouble();
+            double volumeOfCylinder = mathOperator.calculateVolumeOfCylinder(userRadius, userHigh);
 
-        double userRadius = scanner.nextDouble();
-        System.out.println("Введіть висоту циліндра: ");
-        double userHigh = scanner.nextDouble();
-        double volumeOfCylinder = mathOperator.calculateVolumeOfCylinder(userRadius, userHigh);
+            System.out.printf("Об'єм циліндра з радіусом %s і висотою %s дорівнює %s%n", userRadius, userHigh, volumeOfCylinder);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        } catch (InputMismatchException e) {
+            System.out.println("Некорретне значення");
+            scanner.close();
+        }
 
-        System.out.printf("Об'єм циліндра з радіусом %s і висотою %s дорівнює %s%n", userRadius, userHigh, volumeOfCylinder);
+
+
+
 
         System.out.println("Введіть a ");
         int userA = scanner.nextInt();
