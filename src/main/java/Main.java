@@ -8,9 +8,16 @@ public class Main {
 
         int userNumber = scanner.nextInt();
         int squareOfNumber = mathOperator.squareNumber(userNumber);
-        System.out.println("Квадрат числа " + userNumber + " дорівнює " + squareOfNumber);
+        System.out.printf("Квадрат числа %d дорівнює %d%n", userNumber, squareOfNumber);
 
+        System.out.println("Введіть радіус циліндра: ");
 
+        double userRadius = scanner.nextDouble();
+        System.out.println("Введіть висоту циліндра: ");
+        double userHigh = scanner.nextDouble();
+        double volumeOfCylinder = mathOperator.calculateVolumeOfCylinder(userRadius, userHigh);
+
+        System.out.printf("Об'єм циліндра з радіусом %s і висотою %s дорівнює %s%n", userRadius, userHigh, volumeOfCylinder);
 
     }
 }
