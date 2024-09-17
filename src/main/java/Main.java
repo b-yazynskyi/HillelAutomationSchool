@@ -19,5 +19,12 @@ public class Main {
 
         System.out.printf("Об'єм циліндра з радіусом %s і висотою %s дорівнює %s%n", userRadius, userHigh, volumeOfCylinder);
 
+        System.out.println("Введіть a ");
+        int userA = scanner.nextInt();
+        System.out.println("Введіть b ");
+        int userB = scanner.nextInt();
+        double elevationOfNumber = mathOperator.elevationOfNumberToPower(userA, userB);
+        System.out.printf("Результат %s ^ %s дорівнює %sn", userA, userB, elevationOfNumber);
+
     }
 }
