@@ -14,6 +14,7 @@ target/
 encodings.xml
 misc.xml
 vcs.xml
+.idea/
 
 ### Eclipse ###
 .apt_generated
