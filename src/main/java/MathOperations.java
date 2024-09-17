@@ -8,5 +8,8 @@ public class MathOperations {
         return Math.PI * Math.sqrt(radius) * high;
     }
 
+    public double elevationOfNumberToPower(int a, int b) {
+        return Math.pow(a, b);
+    }
 
 }
