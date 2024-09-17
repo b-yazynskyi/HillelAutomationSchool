@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -6,9 +7,16 @@ public class Main {
         MathOperations mathOperator = new MathOperations();
         System.out.println("Введіть ціле число: ");
 
-        int userNumber = scanner.nextInt();
-        int squareOfNumber = mathOperator.squareNumber(userNumber);
-        System.out.printf("Квадрат числа %d дорівнює %d%n", userNumber, squareOfNumber);
+        try {
+            int userNumber = scanner.nextInt();
+            int squareOfNumber = mathOperator.squareNumber(userNumber);
+            System.out.printf("Квадрат числа %d дорівнює %d%n", userNumber, squareOfNumber);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        } catch (InputMismatchException e) {
+            System.out.println("Занадто велике число");
+            scanner.close();
+        }
 
         System.out.println("Введіть радіус циліндра: ");
 

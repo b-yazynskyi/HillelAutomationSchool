@@ -2,7 +2,7 @@ public class MathOperations {
 
     public int squareNumber(int number) {
         if (number > Math.sqrt(Integer.MAX_VALUE) || number < -Math.sqrt(Integer.MAX_VALUE)) {
-            throw new IllegalArgumentException("Число занадто велике щоб возвести у степінь " +
+            throw new IllegalArgumentException("Число занадто велике щоб возвести у квадрат " +
                     "і залишитись у ліміті макс. значення int");
         }
         return number * number;
