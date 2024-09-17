@@ -5,7 +5,7 @@ public class MathOperations {
     };
 
     public double calculateVolumeOfCylinder(double radius, double high) {
-        return Math.PI * Math.sqrt(radius) * high;
+        return Math.PI * Math.pow(radius, 2) * high;
     }
 
     public double elevationOfNumberToPower(int a, int b) {
