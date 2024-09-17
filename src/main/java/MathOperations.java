@@ -4,5 +4,9 @@ public class MathOperations {
         return number * number;
     };
 
+    public double calculateVolumeOfCylinder(double radius, double high) {
+        return Math.PI * Math.sqrt(radius) * high;
+    }
+
 
 }
