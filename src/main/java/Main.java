@@ -33,16 +33,20 @@ public class Main {
             scanner.close();
         }
 
+        try {
+            System.out.println("Введіть a ");
+            int userA = scanner.nextInt();
+            System.out.println("Введіть b ");
+            int userB = scanner.nextInt();
+            int elevationOfNumber = mathOperator.elevationOfNumberToPower(userA, userB);
+            System.out.printf("Результат %s ^ %s дорівнює %s.", userA, userB, elevationOfNumber);
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        } catch (InputMismatchException e) {
+            System.out.println("Некорректне значення");
+            scanner.close();
+        }
 
-
-
-
-        System.out.println("Введіть a ");
-        int userA = scanner.nextInt();
-        System.out.println("Введіть b ");
-        int userB = scanner.nextInt();
-        int elevationOfNumber = mathOperator.elevationOfNumberToPower(userA, userB);
-        System.out.printf("Результат %s ^ %s дорівнює %s.", userA, userB, elevationOfNumber);
 
     }
 }
