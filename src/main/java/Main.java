@@ -23,8 +23,8 @@ public class Main {
         int userA = scanner.nextInt();
         System.out.println("Введіть b ");
         int userB = scanner.nextInt();
-        double elevationOfNumber = mathOperator.elevationOfNumberToPower(userA, userB);
-        System.out.printf("Результат %s ^ %s дорівнює %sn", userA, userB, elevationOfNumber);
+        int elevationOfNumber = mathOperator.elevationOfNumberToPower(userA, userB);
+        System.out.printf("Результат %s ^ %s дорівнює %s.", userA, userB, elevationOfNumber);
 
     }
 }
