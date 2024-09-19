@@ -10,7 +10,7 @@ public final class MainUtils {
         return scanner.nextInt();
     }
 
-    public static String isAdult(int age) {
+    public static String isAdult(int age) throws IllegalArgumentException {
         if (age < 0 || age > 120) {
             throw new IllegalArgumentException("Не можливий вік. Введіть вірне значення");
         }
