@@ -8,5 +8,9 @@ public final class MainUtils {
         Scanner scanner = new Scanner(System.in);
 
         return scanner.nextInt();
-    };
+    }
+
+    public static String isAdult(int age) {
+        return age >= 18 ? "Ви доросла особа" : "Ви не є дорослою особою";
+    }
 }
