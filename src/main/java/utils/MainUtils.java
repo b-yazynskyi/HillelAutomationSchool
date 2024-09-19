@@ -11,6 +11,9 @@ public final class MainUtils {
     }
 
     public static String isAdult(int age) {
+        if (age < 0 || age > 120) {
+            throw new IllegalArgumentException("Не можливий вік. Введіть вірне значення");
+        }
         return age >= 18 ? "Ви доросла особа" : "Ви не є дорослою особою";
     }
 }
