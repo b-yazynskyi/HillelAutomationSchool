@@ -7,6 +7,8 @@ import static java.lang.Math.sqrt;
 
 public final class Utils {
 
+    private Utils(){}
+
     public static int readIntFromConsole() {
         Scanner scanner = new Scanner(System.in);
 
