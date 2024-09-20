@@ -49,4 +49,19 @@ public class UtilsTests {
         Assert.assertThrows(IllegalArgumentException.class, () -> Utils.isPerfectSquare(-1));
     }
 
+    @Test(groups = {"sumNumbersFromOneToNumber"})
+    void oneShouldBeOne(){
+        Assert.assertEquals(Utils.sumNumbersFromOneToNumber(1), 1);
+    }
+
+    @Test(groups = {"sumNumbersFromOneToNumber"})
+    void threeShouldBeThree(){
+        Assert.assertEquals(Utils.sumNumbersFromOneToNumber(3), 3);
+    }
+
+    @Test(groups = {"sumNumbersFromOneToNumber"})
+    void zeroThrowsException(){
+        Assert.assertThrows(IllegalArgumentException.class, () -> Utils.sumNumbersFromOneToNumber(0));
+    }
+
 }
