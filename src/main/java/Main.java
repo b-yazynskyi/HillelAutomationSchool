@@ -36,5 +36,16 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
+        // Task 5.4
+        try {
+            System.out.println("Введіть оцінку від 1 до 5");
+
+            int userMark = Utils.readIntFromConsole();
+
+            System.out.println(Utils.getGrade(userMark));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 }
