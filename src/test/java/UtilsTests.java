@@ -56,7 +56,7 @@ public class UtilsTests {
 
     @Test(groups = {"sumNumbersFromOneToNumber"})
     void threeShouldBeThree(){
-        Assert.assertEquals(Utils.sumNumbersFromOneToNumber(3), 3);
+        Assert.assertEquals(Utils.sumNumbersFromOneToNumber(3), 6);
     }
 
     @Test(groups = {"sumNumbersFromOneToNumber"})
