@@ -1,4 +1,4 @@
-import utils.MainUtils;
+import utils.Utils;
 
 public class Main {
     public static void main(String[] args) {
@@ -7,12 +7,13 @@ public class Main {
         try {
             System.out.println("Введіть свій вік. А ми вирішимо за вас чи ви дорослий xD");
 
-            int userAge = MainUtils.readIntFromConsole();
+            int userAge = Utils.readIntFromConsole();
 
-            System.out.println(MainUtils.isAdult(userAge));
+            System.out.println(Utils.isAdult(userAge));
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
+
 
     }
 }
