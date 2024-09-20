@@ -39,4 +39,19 @@ public final class Utils {
         }
         return result;
     }
+
+    public static String getGrade(int number) {
+        if (number < 1 || number > 5) {
+            throw new IllegalArgumentException("Неправильна оцінка");
+        }
+
+        return switch (number) {
+            case 1 -> "Погано";
+            case 2 -> "Незадовільно";
+            case 3 -> "Задовільно";
+            case 4 -> "Добре";
+            case 5 -> "Відмінно";
+            default -> "";
+        };
+    }
 }
