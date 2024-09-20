@@ -98,4 +98,20 @@ public class UtilsTests {
     void sixThrowsExceptionIllegal() {
         Assert.assertThrows(IllegalArgumentException.class, () -> Utils.getGrade(6));
     }
+
+    @Test(groups = {"isPrime"})
+    void zeroShouldBeFalse() {
+        Assert.assertFalse(Utils.isPrime(0));
+    }
+
+    @Test(groups = {"isPrime"})
+    void eightShouldBeFalse() {
+        Assert.assertFalse(Utils.isPrime(8));
+    }
+
+    @Test(groups = {"isPrime"})
+    void sevenShouldBeTrue() {
+        Assert.assertTrue(Utils.isPrime(7));
+    }
+
 }
