@@ -14,6 +14,16 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
+        // Task 5.2
+        try {
+            System.out.println("Введіть ціле число для перевірки чи це ідеальний квадрат");
+
+            int userNumber = Utils.readIntFromConsole();
+
+            System.out.println(Utils.isPerfectSquare(userNumber));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
 
     }
 }
