@@ -27,4 +27,13 @@ public final class Utils {
         double root =  round(sqrt(number));
         return root * root == number;
     }
+
+    public static long sumNumbersFromOneToNumber(int number) {
+        int i = 1;
+        long result = 0;
+        while (i++ != number + 1) {
+            result += i;
+        }
+        return result;
+    }
 }
