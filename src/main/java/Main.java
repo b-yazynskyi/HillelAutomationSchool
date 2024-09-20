@@ -54,7 +54,7 @@ public class Main {
             int userNumber = Utils.readIntFromConsole();
 
             System.out.println(Utils.isPrime(userNumber));
-        } catch (IllegalArgumentException e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
