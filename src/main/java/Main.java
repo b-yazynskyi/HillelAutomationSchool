@@ -47,5 +47,16 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
+        // Task 5.5
+        try {
+            System.out.println("Введіть число");
+
+            int userNumber = Utils.readIntFromConsole();
+
+            System.out.println(Utils.isPrime(userNumber));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 }
