@@ -64,4 +64,38 @@ public class UtilsTests {
         Assert.assertThrows(IllegalArgumentException.class, () -> Utils.sumNumbersFromOneToNumber(0));
     }
 
+    @Test(groups = "getGrade")
+    void fiveShouldBeExcellent() {
+        Assert.assertEquals(Utils.getGrade(5), "Відмінно");
+    }
+
+    @Test(groups = "getGrade")
+    void fourShouldBeNice() {
+        Assert.assertEquals(Utils.getGrade(4), "Добре");
+    }
+
+    @Test(groups = "getGrade")
+    void threeShouldBeWell() {
+        Assert.assertEquals(Utils.getGrade(3), "Задовільно");
+    }
+
+    @Test(groups = "getGrade")
+    void twoShouldBeBad() {
+        Assert.assertEquals(Utils.getGrade(2), "Незадовільно");
+    }
+
+    @Test(groups = "getGrade")
+    void oneShouldBeAwful() {
+        Assert.assertEquals(Utils.getGrade(1), "Погано");
+    }
+
+    @Test(groups = "getGrade")
+    void zeroThrowsExceptionIllegal() {
+        Assert.assertThrows(IllegalArgumentException.class, () -> Utils.getGrade(0));
+    }
+
+    @Test(groups = "getGrade")
+    void sixThrowsExceptionIllegal() {
+        Assert.assertThrows(IllegalArgumentException.class, () -> Utils.getGrade(6));
+    }
 }
