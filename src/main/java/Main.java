@@ -25,5 +25,16 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
+        // Task 5.3
+        try {
+            System.out.println("Введіть число від 1");
+
+            int userNumber = Utils.readIntFromConsole();
+
+            System.out.println(Utils.sumNumbersFromOneToNumber(userNumber));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 }

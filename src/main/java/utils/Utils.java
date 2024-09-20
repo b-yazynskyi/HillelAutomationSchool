@@ -29,9 +29,12 @@ public final class Utils {
     }
 
     public static long sumNumbersFromOneToNumber(int number) {
+        if (number <= 0) {
+            throw new IllegalArgumentException("Хибні вхідні параметри");
+        }
         int i = 1;
-        long result = 0;
-        while (i++ != number + 1) {
+        long result = 1;
+        while (i++ != number) {
             result += i;
         }
         return result;
