@@ -1,17 +1,15 @@
 package utils;
 
 
+import java.util.Arrays;
+
 public final class Utils {
 
     private Utils(){};
 
-    public static int averageValue(int[] numbers) {
+    public static double averageValue(int[] numbers) {
 
-        int result = 0;
-        for (int number : numbers) {
-            result += number;
-        }
-        return result / numbers.length;
+        return Arrays.stream(numbers).average().isPresent() ? Arrays.stream(numbers).average().getAsDouble() : 0;
     }
 
 }
