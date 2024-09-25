@@ -27,6 +27,15 @@ public final class Utils {
         return arrayNumbers;
     }
 
+    public static int getNumberFromConsole() {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Введіть число для пошуку у масиві");
+
+        return scanner.nextInt();
+    }
+
     public static double averageValue(int[] numbers) {
 
         return Arrays.stream(numbers).average().orElse(0);
