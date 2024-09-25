@@ -35,4 +35,8 @@ public final class Utils {
         return Arrays.stream(numbers).min().orElse(0);
     }
 
+    public static int maxValueInArray(int[] numbers) {
+        return Arrays.stream(numbers).max().orElse(0);
+    }
+
 }
