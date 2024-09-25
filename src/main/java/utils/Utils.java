@@ -49,4 +49,10 @@ public final class Utils {
         return Arrays.toString(boxedArray);
     }
 
+    public static String isNumberInArray(int[] numbers, int number) {
+        return Arrays.stream(numbers).anyMatch(num -> num == number) ? "Число " + number + " є у масиві."
+                : "Число " + number + " відсутнє у масиві";
+
+    }
+
 }
