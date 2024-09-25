@@ -28,7 +28,11 @@ public final class Utils {
 
     public static double averageValue(int[] numbers) {
 
-        return Arrays.stream(numbers).average().isPresent() ? Arrays.stream(numbers).average().getAsDouble() : 0;
+        return Arrays.stream(numbers).average().orElse(0);
+    }
+
+    public static int minValueInArray(int[] numbers) {
+        return Arrays.stream(numbers).min().orElse(0);
     }
 
 }
