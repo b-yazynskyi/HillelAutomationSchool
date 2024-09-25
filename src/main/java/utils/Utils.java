@@ -2,6 +2,7 @@ package utils;
 
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 public final class Utils {
@@ -37,6 +38,15 @@ public final class Utils {
 
     public static int maxValueInArray(int[] numbers) {
         return Arrays.stream(numbers).max().orElse(0);
+    }
+
+    public static String reverseElementsInArray(int[] numbers) {
+
+        Integer[] boxedArray = Arrays.stream(numbers).boxed().toArray(Integer[]::new);
+
+        Collections.reverse(Arrays.asList(boxedArray));
+
+        return Arrays.toString(boxedArray);
     }
 
 }
