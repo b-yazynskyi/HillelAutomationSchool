@@ -11,5 +11,6 @@ public class Main {
         System.out.println(Utils.maxValueInArray(Utils.getArrayIntegersFromConsole()));
 
         System.out.println(Utils.reverseElementsInArray(Utils.getArrayIntegersFromConsole()));
+        System.out.println(Utils.isNumberInArray(Utils.getArrayIntegersFromConsole(), Utils.getNumberFromConsole()));
     }
 }
