@@ -14,6 +14,14 @@ public final class Utils {
         return scanner.nextLine();
     }
 
+    public static int getNumberFromUser() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Введіть число");
+
+        return scanner.nextInt();
+    }
+
     public static String repeatEnd(String word, int number) {
         if (word.length() < number) {
             throw new IllegalArgumentException("Число не може бути більше довжини слова.");
