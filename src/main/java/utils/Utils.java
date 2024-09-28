@@ -1,6 +1,8 @@
 package utils;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public final class Utils {
 
@@ -70,5 +72,30 @@ public final class Utils {
         }
 
         return false;
+    }
+
+    public static StringBuilder zipZap(String word) {
+        String pattern = "z.p";
+
+        Pattern compiledPattern = Pattern.compile(pattern);
+        Matcher matcher = compiledPattern.matcher(word);
+
+        StringBuilder modifiedWord = new StringBuilder();
+
+        int lastMatchEnd = 0;
+
+        while (matcher.find()) {
+            modifiedWord.append(word, lastMatchEnd, matcher.start());
+
+            String modifiedPattern = matcher.group().charAt(0) + "" + matcher.group().charAt(2);
+
+            modifiedWord.append(modifiedPattern);
+
+            lastMatchEnd = matcher.end();
+        }
+
+        modifiedWord.append(word.substring(lastMatchEnd));
+
+        return modifiedWord;
     }
 }
