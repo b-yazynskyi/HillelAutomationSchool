@@ -68,4 +68,19 @@ public class UtilsTest {
     void zzzopzopReturnsZzzpzp() {
         Assert.assertEquals(Utils.zipZap("zzzopzop").toString(), "zzzpzp");
     }
+
+    @Test(groups = {"xyzThere"})
+    void withoutDotReturnTrue() {
+        Assert.assertTrue(Utils.xyzThere("abcxyz"));
+    }
+
+    @Test(groups = {"xyzThere"})
+    void withDotOnBeginningReturnsFalse() {
+        Assert.assertFalse(Utils.xyzThere("abc.xyz"));
+    }
+
+    @Test(groups = {"xyzThere"})
+    void withDotOnEndReturnsTrue() {
+        Assert.assertTrue(Utils.xyzThere("xyz.abc"));
+    }
 }
