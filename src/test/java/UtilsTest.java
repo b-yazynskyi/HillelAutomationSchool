@@ -53,4 +53,19 @@ public class UtilsTest {
     void axyzbbbReturnsFalse() {
         Assert.assertFalse(Utils.xyzMiddle("AxyzBBB"));
     }
+
+    @Test(groups = {"zipZap"})
+    void zipxzapReturnsZpXzp() {
+        Assert.assertEquals(Utils.zipZap("zipXzap").toString(), "zpXzp");
+    }
+
+    @Test(groups = {"zipZap"})
+    void zopzopReturnsZpzp() {
+        Assert.assertEquals(Utils.zipZap("zopzop").toString(), "zpzp");
+    }
+
+    @Test(groups = {"zipZap"})
+    void zzzopzopReturnsZzzpzp() {
+        Assert.assertEquals(Utils.zipZap("zzzopzop").toString(), "zzzpzp");
+    }
 }
