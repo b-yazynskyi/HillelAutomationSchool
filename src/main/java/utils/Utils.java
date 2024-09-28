@@ -98,4 +98,14 @@ public final class Utils {
 
         return modifiedWord;
     }
+
+    public static boolean xyzThere(String word) {
+        String patternXyzWithDot = "\\.xyz";
+        String patternWithOutDot = "xyz";
+
+        if (word.matches(".*" + patternXyzWithDot + ".*")) {
+            return false;
+        } else
+            return word.matches(".*" + patternWithOutDot + ".*");
+    }
 }
