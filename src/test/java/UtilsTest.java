@@ -23,4 +23,19 @@ public class UtilsTest {
     void wordLowerThanNumberShouldBeException() {
         Assert.assertThrows(IllegalArgumentException.class, () -> Utils.repeatEnd("Hello", 6));
     }
+
+    @Test(groups = {"mixString"})
+    void abcAndXyzShouldBeMixedOneByOne() {
+        Assert.assertEquals(Utils.mixString("abc", "xyz").toString(), "axbycz");
+    }
+
+    @Test(groups = {"mixString"})
+    void hiAndThereShouldBeMixedOneByOnePlusRest() {
+        Assert.assertEquals(Utils.mixString("Hi", "There").toString(), "HTihere");
+    }
+
+    @Test(groups = {"mixString"})
+    void xxxxAndThereShouldBeMixedOneByOnePlusRest() {
+        Assert.assertEquals(Utils.mixString("xxxx", "There").toString(), "xTxhxexre");
+    }
 }
