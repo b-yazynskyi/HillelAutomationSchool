@@ -53,4 +53,22 @@ public final class Utils {
 
         return result;
     }
+
+    public static boolean xyzMiddle(String word) {
+        int wordLength = word.length();
+
+        for (int i = 0; i <= wordLength - 3; i++) {
+
+            if (word.startsWith("xyz", i)) {
+                int left = i;
+                int right = wordLength - (i + 3);
+
+                if (Math.abs(left - right) <= 1) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
 }
