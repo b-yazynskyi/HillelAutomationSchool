@@ -18,5 +18,7 @@ public class Main {
         System.out.println(Utils.xyzMiddle(Utils.getStringFromUser()));
 
         System.out.println(Utils.zipZap(Utils.getStringFromUser()));
+
+        System.out.println(Utils.xyzThere(Utils.getStringFromUser()));
     }
 }
