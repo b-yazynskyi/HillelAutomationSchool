@@ -38,4 +38,19 @@ public class UtilsTest {
     void xxxxAndThereShouldBeMixedOneByOnePlusRest() {
         Assert.assertEquals(Utils.mixString("xxxx", "There").toString(), "xTxhxexre");
     }
+
+    @Test(groups = {"xyzMiddle"})
+    void aaxyzbbReturnsTrue() {
+        Assert.assertTrue(Utils.xyzMiddle("AAxyzBB"));
+    }
+
+    @Test(groups = {"xyzMiddle"})
+    void axyzbbReturnsTrue() {
+        Assert.assertTrue(Utils.xyzMiddle("AxyzBB"));
+    }
+
+    @Test(groups = {"xyzMiddle"})
+    void axyzbbbReturnsFalse() {
+        Assert.assertFalse(Utils.xyzMiddle("AxyzBBB"));
+    }
 }
