@@ -8,5 +8,11 @@ public class Main {
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
+
+        try {
+            System.out.println(Utils.mixString(Utils.getStringFromUser(), Utils.getStringFromUser()));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
