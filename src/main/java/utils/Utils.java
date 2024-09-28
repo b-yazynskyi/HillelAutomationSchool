@@ -31,4 +31,26 @@ public final class Utils {
 
         return partForRepeat.repeat(number);
     }
+
+    public static StringBuilder mixString(String firstWord, String secondWord) {
+        if (firstWord == null || secondWord == null) {
+            throw new IllegalArgumentException("Потрібно ввести 2 слова");
+        }
+
+        StringBuilder result = new StringBuilder();
+
+        int minLength = Math.min(firstWord.length(), secondWord.length());
+        for (int i = 0; i < minLength; i++) {
+            result.append(firstWord.charAt(i));
+            result.append(secondWord.charAt(i));
+        }
+
+        if (firstWord.length() > secondWord.length()) {
+            result.append(firstWord.substring(minLength));
+        } else {
+            result.append(secondWord.substring(minLength));
+        }
+
+        return result;
+    }
 }
