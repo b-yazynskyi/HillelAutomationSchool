@@ -11,6 +11,8 @@ public final class Utils {
     public static String getStringFromUser() {
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("Введіть слово:");
+
         return scanner.nextLine();
     }
 
