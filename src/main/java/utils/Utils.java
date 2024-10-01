@@ -16,6 +16,24 @@ public final class Utils {
         return scanner.nextLine();
     }
 
+    public static int[] getArrayOfNumbersFromUser() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Введіть розмір масиву");
+
+        int sizeArray = scanner.nextInt();
+
+        System.out.println("Введіть " + sizeArray + " чисел");
+
+        int[] arrayOfNumbers = new int[sizeArray];
+
+        for (int i = 0; i < sizeArray; i++) {
+            arrayOfNumbers[i] = scanner.nextInt();
+        }
+
+        return arrayOfNumbers;
+    }
+
     public static boolean catDog(String word) {
         int catCount = word.split("cat", -1).length - 1;
         int dogCount = word.split("dog", -1).length - 1;
