@@ -1,8 +1,7 @@
 package utils;
 
-import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public final class Utils {
 
@@ -39,5 +38,24 @@ public final class Utils {
         int dogCount = word.split("dog", -1).length - 1;
 
         return catCount == dogCount;
+    }
+
+    public static int centeredAverage(int[] array) throws IllegalArgumentException {
+        if (array.length < 3) {
+            throw new IllegalArgumentException("Массив має бути 3 або більше елементи");
+        }
+
+        List<Integer> arrayOfNumbers = Arrays.stream(array).boxed().collect(Collectors.toList());
+
+        Optional<Integer> minElement = arrayOfNumbers.stream().min(Comparator.naturalOrder());
+
+        minElement.ifPresent(arrayOfNumbers::remove);
+
+        Optional<Integer> maxElement = arrayOfNumbers.stream().max(Comparator.naturalOrder());
+
+        maxElement.ifPresent(arrayOfNumbers::remove);
+
+        int sum = arrayOfNumbers.stream().mapToInt(Integer::intValue).sum();
+        return sum / arrayOfNumbers.size();
     }
 }
