@@ -134,4 +134,9 @@ public final class Utils {
 
         return word.split("co.e", -1).length - 1;
     }
+
+    public static boolean endsWith(String word1, String word2) {
+
+        return word1.toLowerCase().endsWith(word2.toLowerCase()) || word2.toLowerCase().endsWith(word1.toLowerCase());
+    }
 }
