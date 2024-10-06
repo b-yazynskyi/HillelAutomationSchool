@@ -1,6 +1,5 @@
 import utils.Utils;
 
-import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -23,6 +22,9 @@ public class Main {
 
         // Task 8.4
         System.out.println(Utils.sumWithoutUnlucky13(Utils.getArrayOfNumbersFromUser()));
+
+        // Task 8.5
+        System.out.println(Utils.differenceLargestSmallest(Utils.getArrayOfNumbersFromUser()));
 
     }
 }
