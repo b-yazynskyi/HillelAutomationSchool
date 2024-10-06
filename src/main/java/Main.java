@@ -35,5 +35,8 @@ public class Main {
         // Task 8.8
         System.out.println(Utils.countCode(Utils.getStringFromUser()));
 
+        // Task 8.9
+        System.out.println(Utils.endsWith(Utils.getStringFromUser(), Utils.getStringFromUser()));
+
     }
 }
