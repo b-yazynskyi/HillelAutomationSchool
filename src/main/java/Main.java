@@ -26,5 +26,8 @@ public class Main {
         // Task 8.5
         System.out.println(Utils.differenceLargestSmallest(Utils.getArrayOfNumbersFromUser()));
 
+        // Task 8.6
+        System.out.println(Utils.doubleChars(Utils.getStringFromUser()));
+
     }
 }
