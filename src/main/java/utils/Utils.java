@@ -88,4 +88,19 @@ public final class Utils {
 
         return sum;
     }
+
+    public static int sumWithoutUnlucky13(int[] array) {
+        int sum = 0;
+        boolean isIgnore = false;
+
+        for (int num : array) {
+            if (num == 13) {
+                isIgnore = true;
+            } else if (!isIgnore) {
+                sum += num;
+            }
+        }
+
+        return sum;
+    }
 }
