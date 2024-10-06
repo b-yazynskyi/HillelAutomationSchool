@@ -21,5 +21,8 @@ public class Main {
         // Task 8.3
         System.out.println(Utils.sumIgnoreSections(Utils.getArrayOfNumbersFromUser()));
 
+        // Task 8.4
+        System.out.println(Utils.sumWithoutUnlucky13(Utils.getArrayOfNumbersFromUser()));
+
     }
 }
