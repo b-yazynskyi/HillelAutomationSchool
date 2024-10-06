@@ -124,4 +124,9 @@ public final class Utils {
 
         return result.toString();
     }
+
+    public static int countHi(String word) {
+
+        return word.split("hi", -1).length - 1;
+    }
 }
