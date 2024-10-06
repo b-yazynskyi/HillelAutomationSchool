@@ -58,4 +58,16 @@ public final class Utils {
         int sum = arrayOfNumbers.stream().mapToInt(Integer::intValue).sum();
         return sum / arrayOfNumbers.size();
     }
+
+    public static int countEvenInts(int[] array) {
+        int countEven = 0;
+
+        for (int num : array) {
+            if (num % 2 == 0) {
+                countEven++;
+            }
+        }
+
+        return countEven;
+    }
 }
