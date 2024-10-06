@@ -5,7 +5,8 @@ import java.util.stream.Collectors;
 
 public final class Utils {
 
-    private Utils() {}
+    private Utils() {
+    }
 
     public static String getStringFromUser() {
         Scanner scanner = new Scanner(System.in);
@@ -69,5 +70,22 @@ public final class Utils {
         }
 
         return countEven;
+    }
+
+    public static int sumIgnoreSections(int[] array) {
+        int sum = 0;
+        boolean isIgnore = false;
+
+        for (int num : array) {
+            if (num == 6) {
+                isIgnore = true;
+            } else if (isIgnore && num == 7) {
+                isIgnore = false;
+            } else if (!isIgnore) {
+                sum += num;
+            }
+        }
+
+        return sum;
     }
 }
