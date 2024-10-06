@@ -103,4 +103,13 @@ public final class Utils {
 
         return sum;
     }
+
+    public static int differenceLargestSmallest(int[] array) {
+        List<Integer> arrayOfNumbers = Arrays.stream(array).boxed().toList();
+
+        int minNumber = Collections.min(arrayOfNumbers);
+        int maxNumber = Collections.max(arrayOfNumbers);
+
+        return maxNumber - minNumber;
+    }
 }
