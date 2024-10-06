@@ -29,5 +29,8 @@ public class Main {
         // Task 8.6
         System.out.println(Utils.doubleChars(Utils.getStringFromUser()));
 
+        // Task 8.7
+        System.out.println(Utils.countHi(Utils.getStringFromUser()));
+
     }
 }
