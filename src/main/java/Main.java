@@ -32,5 +32,8 @@ public class Main {
         // Task 8.7
         System.out.println(Utils.countHi(Utils.getStringFromUser()));
 
+        // Task 8.8
+        System.out.println(Utils.countCode(Utils.getStringFromUser()));
+
     }
 }
