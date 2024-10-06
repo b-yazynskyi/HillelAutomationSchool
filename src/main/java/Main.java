@@ -18,6 +18,8 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
+        // Task 8.3
+        System.out.println(Utils.sumIgnoreSections(Utils.getArrayOfNumbersFromUser()));
 
     }
 }
