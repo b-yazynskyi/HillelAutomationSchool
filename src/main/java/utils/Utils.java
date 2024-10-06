@@ -129,4 +129,9 @@ public final class Utils {
 
         return word.split("hi", -1).length - 1;
     }
+
+    public static int countCode(String word) {
+
+        return word.split("co.e", -1).length - 1;
+    }
 }
