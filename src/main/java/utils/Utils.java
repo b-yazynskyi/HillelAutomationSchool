@@ -112,4 +112,16 @@ public final class Utils {
 
         return maxNumber - minNumber;
     }
+
+    public static String doubleChars(String word) {
+        StringBuilder result = new StringBuilder();
+
+        char[] lettersFromWord = word.toCharArray();
+
+        for (char letter : lettersFromWord) {
+            result.append(letter).append(letter);
+        }
+
+        return result.toString();
+    }
 }
