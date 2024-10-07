@@ -33,5 +33,10 @@ public class Person {
         this.profession = profession;
     }
 
-
+    @Override
+    public String toString() {
+        return "Імʼя: " + name +
+                ", Вік: " + age +
+                ", Професія: " + profession;
+    }
 }
