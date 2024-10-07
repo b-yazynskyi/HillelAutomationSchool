@@ -7,19 +7,16 @@ public class Main {
 
         Person person4 = new Person("Alice", 28, "Архітектор");
 
-        System.out.printf("Імʼя: %s , Вік: %d, Професія: %s %n", person1.getName(),
-                person1.getAge(), person1.getProfession());
-        System.out.printf("Імʼя: %s , Вік: %d, Професія: %s %n", person2.getName(),
-                person2.getAge(), person2.getProfession());
-        System.out.printf("Імʼя: %s , Вік: %d, Професія: %s %n", person3.getName(),
-                person3.getAge(), person3.getProfession());
-        System.out.printf("Імʼя: %s , Вік: %d, Професія: %s %n", person4.getName(),
-                person4.getAge(), person4.getProfession());
+        System.out.println(person1);
+        System.out.println(person2);
+        System.out.println(person3);
+        System.out.println(person4);
 
         person4.setProfession("Дизайнер");
 
         System.out.println("(Після оновлення професії)");
-        System.out.printf("Імʼя: %s , Вік: %d, Професія: %s %n", person4.getName(),
-                person4.getAge(), person4.getProfession());
+        System.out.println(person4);
+
+
     }
 }
