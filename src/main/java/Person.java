@@ -3,9 +3,10 @@ public class Person {
     private final int age;
     private PersonRole profession;
 
-    public Person(String name, int age) {
+    public Person(String name, int age, PersonRole profession) {
         this.name = name;
         this.age = age;
+        this.profession = profession;
     }
 
     @Override
