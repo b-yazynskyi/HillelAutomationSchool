@@ -9,6 +9,10 @@ public class Person {
         this.profession = profession;
     }
 
+    public void setProfession(PersonRole profession) {
+        this.profession = profession;
+    }
+
     @Override
     public String toString() {
         return "Імʼя: " + name +
