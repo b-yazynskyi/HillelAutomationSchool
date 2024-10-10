@@ -1,4 +1,4 @@
-public class Person {
+public abstract class Person implements Displayable {
     private final String name;
     private final int age;
     private PersonRole profession;
@@ -14,9 +14,41 @@ public class Person {
     }
 
     @Override
+    public void displayInformation() {
+        System.out.println("Імʼя: " + name +
+                ", Вік: " + age +
+                ", Професія: " + profession +
+                ", Стать: " + getGender());
+    }
+
+    protected abstract String getGender();
+
+    @Override
     public String toString() {
         return "Імʼя: " + name +
                 ", Вік: " + age +
                 ", Професія: " + profession;
+    }
+
+    public enum PersonRole {
+        STUDENT("Студент"),
+        TEACHER("Вчитель"),
+        DOCTOR("Лікар"),
+        ENGINEER("Інженер"),
+        ARTIST("Артист"),
+        DESIGNER("Дизайнер"),
+        ARCHITECT("Архітектор"),
+        OTHER("Інший");
+
+        private final String name;
+
+        PersonRole(String name) {
+            this.name = name;
+        }
+
+        @Override
+        public String toString() {
+            return name;
+        }
     }
 }
