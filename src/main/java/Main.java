@@ -1,22 +1,21 @@
 public class Main {
     public static void main(String[] args) {
 
-        Person person1 = new Person("John", 30, "Інженер");
-        Person person2 = new Person("Mary", 25, "Вчитель");
-        Person person3 = new Person("Bob", 35, "Лікар");
+        Person person1 = new Man("John", 25, Person.PersonRole.ENGINEER);
+        Person person2 = new Woman("Mary", 25, Person.PersonRole.TEACHER);
+        Person person3 = new Man("Bob", 35, Person.PersonRole.DOCTOR);
+        Person person4 = new Woman("Alice", 28, Person.PersonRole.ARCHITECT);
 
-        Person person4 = new Person("Alice", 28, "Архітектор");
+        person1.displayInformation();
+        person2.displayInformation();
+        person3.displayInformation();
+        person4.displayInformation();
 
-        System.out.println(person1);
-        System.out.println(person2);
-        System.out.println(person3);
-        System.out.println(person4);
-
-        person4.setProfession("Дизайнер");
+        person4.setProfession(Person.PersonRole.DESIGNER);
 
         System.out.println("(Після оновлення професії)");
-        System.out.println(person4);
 
+        person4.displayInformation();
 
     }
 }
