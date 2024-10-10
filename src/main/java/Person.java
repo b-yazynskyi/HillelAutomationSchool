@@ -1,16 +1,11 @@
 public class Person {
     private final String name;
     private final int age;
-    private String profession;
+    private PersonRole profession;
 
-    public Person(String name, int age, String profession) {
+    public Person(String name, int age) {
         this.name = name;
         this.age = age;
-        this.profession = profession;
-    }
-
-    public void setProfession(String profession) {
-        this.profession = profession;
     }
 
     @Override
