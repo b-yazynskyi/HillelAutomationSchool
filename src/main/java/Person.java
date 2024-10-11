@@ -15,8 +15,22 @@ public abstract class Person implements Displayable {
 
     @Override
     public void displayInformation() {
+        System.out.println("Імʼя: " + this.name +
+                ", Вік: " + this.age +
+                ", Професія: " + this.profession +
+                ", Стать: " + getGender());
+    }
+
+    public void displayInformation(String name) {
         System.out.println("Імʼя: " + name +
-                ", Вік: " + age +
+                ", Вік: " + this.age +
+                ", Професія: " + this.profession +
+                ", Стать: " + getGender());
+    }
+
+    public void displayInformation(String name, PersonRole profession) {
+        System.out.println("Імʼя: " + name +
+                ", Вік: " + this.age +
                 ", Професія: " + profession +
                 ", Стать: " + getGender());
     }
