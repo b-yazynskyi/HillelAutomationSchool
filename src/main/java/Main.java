@@ -17,5 +17,8 @@ public class Main {
 
         person4.displayInformation();
 
+        person1.displayInformation("Anton");
+        person2.displayInformation("Julia", Person.PersonRole.STUDENT);
+
     }
 }
