@@ -13,13 +13,13 @@ public final class Util {
 
         System.out.println("Enter string, all words will be split by space");
 
-        String input = scanner.nextLine().trim();
+        String input = scanner.nextLine();
 
         if (input.isEmpty()) {
             return new String[0];
         }
 
-        return input.split("//s+");
+        return input.split("\\s+");
     }
 
     private static void checkIfArrayEmpty(String[] strings) throws IllegalArgumentException {
@@ -65,6 +65,24 @@ public final class Util {
             }
         }
 
+        return resultMap;
+    }
+
+    public static Map<String, String> mergeStringsByFirstChar(String[] strings) {
+        checkIfArrayEmpty(strings);
+
+        Map<String, String> resultMap = new HashMap<>();
+
+        StringBuilder combinedWord = new StringBuilder();
+
+        for (String word : strings) {
+            String s = String.valueOf(word.charAt(0));
+            if (resultMap.containsKey(s)) {
+                resultMap.put(s, resultMap.get(s) + word);
+            } else {
+                resultMap.put(s, word);
+            }
+        }
         return resultMap;
     }
 
