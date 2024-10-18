@@ -31,5 +31,12 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
+        // Task 13.5
+        try {
+            System.out.println(Util.buildResultString(Util.getStringsArrayFromUser()));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 }
