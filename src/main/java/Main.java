@@ -43,5 +43,7 @@ public class Main {
         // Task 13.6
         System.out.println(Util.findTheMostRepeatedElement(Util.getIntegerListFromUser()));
 
+        // Task 13.7
+        System.out.println(Util.haveCommonElement(Util.getIntegerSetFromUser(), Util.getIntegerSetFromUser()));
     }
 }
