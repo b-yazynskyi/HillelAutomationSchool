@@ -41,6 +41,27 @@ public final class Util {
         return resultList;
     }
 
+    public static LinkedHashSet<Integer> getIntegerSetFromUser() {
+        Scanner scanner = new Scanner(System.in);
+        LinkedHashSet<Integer> resultSet = new LinkedHashSet<>();
+
+        System.out.println("Enter integers separated by spaces:");
+
+        String input = scanner.nextLine();
+
+        String[] numbers = input.split("\\s+");
+
+        for (String number : numbers) {
+            try {
+                resultSet.add(Integer.parseInt(number));
+            } catch (NumberFormatException e) {
+                System.out.println("'" + number + "' is not a valid integer, skipping it.");
+            }
+        }
+
+        return resultSet;
+    }
+
     private static void checkIfArrayEmpty(String[] strings) throws IllegalArgumentException {
         if (strings.length == 0) {
             throw new IllegalArgumentException("Array must have at list 1 item");
@@ -144,6 +165,15 @@ public final class Util {
         }
 
         return mostFrequentElement;
+    }
+
+    public static boolean haveCommonElement(LinkedHashSet<Integer> setA, LinkedHashSet<Integer> setB) {
+        for (Integer element : setA) {
+            if (setB.contains(element)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
