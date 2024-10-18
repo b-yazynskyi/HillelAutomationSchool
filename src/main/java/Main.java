@@ -24,5 +24,12 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
+        // Task 13.4
+        try {
+            System.out.println(Util.mergeStringsByFirstChar(Util.getStringsArrayFromUser()));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 }
