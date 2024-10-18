@@ -24,4 +24,14 @@ public final class Util {
 
         return resultMap;
     }
+
+    public static Map<String, String> createMap(String[] strings) {
+        Map<String, String> resultMap = new HashMap<>();
+
+        for (String s : strings) {
+            resultMap.put(s.substring(0, 1), s.substring(s.length() - 1));
+        }
+
+        return resultMap;
+    }
 }
