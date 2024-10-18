@@ -1,9 +1,6 @@
 package utils;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public final class Util {
 
@@ -21,6 +18,27 @@ public final class Util {
         }
 
         return input.split("\\s+");
+    }
+
+    public static List<Integer> getIntegerListFromUser() {
+        Scanner scanner = new Scanner(System.in);
+        List<Integer> resultList = new ArrayList<>();
+
+        System.out.println("Enter integers separated by spaces:");
+
+        String input = scanner.nextLine();
+
+        String[] numbers = input.split("\\s+");
+
+        for (String number : numbers) {
+            try {
+                resultList.add(Integer.parseInt(number));
+            } catch (NumberFormatException e) {
+                System.out.println("'" + number + "' is not a valid integer, skipping it.");
+            }
+        }
+
+        return resultList;
     }
 
     private static void checkIfArrayEmpty(String[] strings) throws IllegalArgumentException {
@@ -106,6 +124,26 @@ public final class Util {
         }
 
         return isWordAdded ? result.toString() : "";
+    }
+
+    public static int findTheMostRepeatedElement(List<Integer> list) {
+        Map<Integer, Integer> frequencyMap = new HashMap<>();
+
+        for (Integer element : list) {
+            frequencyMap.put(element, frequencyMap.getOrDefault(element, 0) + 1);
+        }
+
+        int mostFrequentElement = list.getFirst();
+        int maxCount = 0;
+
+        for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
+            if (entry.getValue() > maxCount) {
+                mostFrequentElement = entry.getKey();
+                maxCount = entry.getValue();
+            }
+        }
+
+        return mostFrequentElement;
     }
 
 }
