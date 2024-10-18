@@ -1,5 +1,6 @@
 package utils;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -84,6 +85,27 @@ public final class Util {
             }
         }
         return resultMap;
+    }
+
+    public static String buildResultString(String[] strings) {
+        checkIfArrayEmpty(strings);
+
+        Map<String, Integer> wordCount = new HashMap<>();
+        StringBuilder result = new StringBuilder();
+        boolean isWordAdded = false;
+
+        for (String word : strings) {
+            wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
+
+            if (wordCount.get(word) % 2 == 0) {
+                if (!result.toString().contains(word)) {
+                    result.append(word);
+                    isWordAdded = true;
+                }
+            }
+        }
+
+        return isWordAdded ? result.toString() : "";
     }
 
 }
