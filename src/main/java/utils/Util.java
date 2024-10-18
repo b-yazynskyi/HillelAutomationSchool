@@ -1,6 +1,5 @@
 package utils;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -13,13 +12,25 @@ public final class Util {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter string, all words will be split by space");
-        return scanner.nextLine().split(" ");
+
+        String input = scanner.nextLine().trim();
+
+        if (input.isEmpty()) {
+            return new String[0];
+        }
+
+        return input.split("//s+");
     }
 
-    public static Map<String, Integer> getLengthOfStrings(String[] strings) throws IllegalArgumentException {
+    private static void checkIfArrayEmpty(String[] strings) throws IllegalArgumentException {
         if (strings.length == 0) {
             throw new IllegalArgumentException("Array must have at list 1 item");
         }
+    }
+
+    public static Map<String, Integer> getLengthOfStrings(String[] strings) throws IllegalArgumentException {
+        checkIfArrayEmpty(strings);
+
         Map<String, Integer> resultMap = new HashMap<>();
 
         for (String s : strings) {
@@ -30,9 +41,8 @@ public final class Util {
     }
 
     public static Map<String, String> createMap(String[] strings) throws IllegalArgumentException {
-        if (strings.length == 0) {
-            throw new IllegalArgumentException("Array must have at list 1 item");
-        }
+        checkIfArrayEmpty(strings);
+
         Map<String, String> resultMap = new HashMap<>();
 
         for (String s : strings) {
@@ -43,9 +53,8 @@ public final class Util {
     }
 
     public static Map<String, Integer> countWords(String[] strings) throws IllegalArgumentException {
-        if (strings.length == 0) {
-            throw new IllegalArgumentException("Array must have at list 1 item");
-        }
+        checkIfArrayEmpty(strings);
+
         Map<String, Integer> resultMap = new HashMap<>();
 
         for (String s : strings) {
@@ -58,4 +67,5 @@ public final class Util {
 
         return resultMap;
     }
+
 }
