@@ -15,7 +15,10 @@ public final class Util {
         return scanner.nextLine().split(" ");
     }
 
-    public static Map<String, Integer> getLengthOfStrings(String[] strings) {
+    public static Map<String, Integer> getLengthOfStrings(String[] strings) throws IllegalArgumentException {
+        if (strings.length == 0) {
+            throw new IllegalArgumentException("Array must have at list 1 item");
+        }
         Map<String, Integer> resultMap = new HashMap<>();
 
         for (String s : strings) {
@@ -25,7 +28,10 @@ public final class Util {
         return resultMap;
     }
 
-    public static Map<String, String> createMap(String[] strings) {
+    public static Map<String, String> createMap(String[] strings) throws IllegalArgumentException {
+        if (strings.length == 0) {
+            throw new IllegalArgumentException("Array must have at list 1 item");
+        }
         Map<String, String> resultMap = new HashMap<>();
 
         for (String s : strings) {
