@@ -1,5 +1,6 @@
 package utils;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 public final class Util {
@@ -13,5 +14,13 @@ public final class Util {
         return scanner.nextLine().split(" ");
     }
 
+    public static HashMap<String, Integer> getLengthOfStrings(String[] strings) {
+        HashMap<String, Integer> resultMap = new HashMap<>();
 
+        for (String s : strings) {
+            resultMap.put(s, s.length());
+        }
+
+        return resultMap;
+    }
 }
