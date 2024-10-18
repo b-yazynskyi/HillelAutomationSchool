@@ -2,7 +2,20 @@ import utils.Util;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(Util.getLengthOfStrings(Util.getStringsArrayFromUser()));
-        System.out.println(Util.createMap(Util.getStringsArrayFromUser()));
+
+        // Task 13.1
+        try {
+            System.out.println(Util.getLengthOfStrings(Util.getStringsArrayFromUser()));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
+        // Task 13.2
+        try {
+            System.out.println(Util.createMap(Util.getStringsArrayFromUser()));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 }
