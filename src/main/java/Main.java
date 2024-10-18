@@ -17,5 +17,12 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
+        // Task 13.3
+        try {
+            System.out.println(Util.countWords(Util.getStringsArrayFromUser()));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 }
