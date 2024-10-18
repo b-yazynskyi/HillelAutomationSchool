@@ -1,5 +1,7 @@
 import utils.Util;
 
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -37,6 +39,9 @@ public class Main {
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
+
+        // Task 13.6
+        System.out.println(Util.findTheMostRepeatedElement(Util.getIntegerListFromUser()));
 
     }
 }
