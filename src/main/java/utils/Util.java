@@ -102,8 +102,6 @@ public final class Util {
 
         Map<String, String> resultMap = new HashMap<>();
 
-        StringBuilder combinedWord = new StringBuilder();
-
         for (String word : strings) {
             String s = String.valueOf(word.charAt(0));
             if (resultMap.containsKey(s)) {
