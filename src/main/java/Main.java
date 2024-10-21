@@ -1,7 +1,5 @@
 import utils.Util;
 
-import java.util.List;
-
 public class Main {
     public static void main(String[] args) {
 
@@ -44,6 +42,9 @@ public class Main {
         System.out.println(Util.findTheMostRepeatedElement(Util.getIntegerListFromUser()));
 
         // Task 13.7
-        System.out.println(Util.haveCommonElement(Util.getIntegerSetFromUser(), Util.getIntegerSetFromUser()));
+        System.out.println(Util.haveCommonElement(Util.getLinkedHashSetFromUser(), Util.getLinkedHashSetFromUser()));
+
+        // Task 13.8
+        System.out.println(Util.merge2SetsTo1Set(Util.getIntegerTreeSetFromUser(), Util.getIntegerTreeSetFromUser()));
     }
 }
