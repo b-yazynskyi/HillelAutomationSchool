@@ -20,46 +20,35 @@ public final class Util {
         return input.split("\\s+");
     }
 
-    public static List<Integer> getIntegerListFromUser() {
+    public static <T extends Collection<Integer>> T getIntegerCollectionFromUser(T collection) {
         Scanner scanner = new Scanner(System.in);
-        List<Integer> resultList = new ArrayList<>();
 
-        System.out.println("Enter integers separated by spaces:");
-
+        System.out.println("Enter integers separated by spaces");
         String input = scanner.nextLine();
 
         String[] numbers = input.split("\\s+");
 
         for (String number : numbers) {
             try {
-                resultList.add(Integer.parseInt(number));
+                collection.add(Integer.parseInt(number));
             } catch (NumberFormatException e) {
-                System.out.println("'" + number + "' is not a valid integer, skipping it.");
+                System.out.println("'" + number + "' is not valid number, Skipping it.");
             }
         }
 
-        return resultList;
+        return collection;
     }
 
-    public static LinkedHashSet<Integer> getIntegerSetFromUser() {
-        Scanner scanner = new Scanner(System.in);
-        LinkedHashSet<Integer> resultSet = new LinkedHashSet<>();
+    public static List<Integer> getIntegerListFromUser() {
+        return getIntegerCollectionFromUser(new ArrayList<>());
+    }
 
-        System.out.println("Enter integers separated by spaces:");
+    public static LinkedHashSet<Integer> getLinkedHashSetFromUser() {
+        return getIntegerCollectionFromUser(new LinkedHashSet<>());
+    }
 
-        String input = scanner.nextLine();
-
-        String[] numbers = input.split("\\s+");
-
-        for (String number : numbers) {
-            try {
-                resultSet.add(Integer.parseInt(number));
-            } catch (NumberFormatException e) {
-                System.out.println("'" + number + "' is not a valid integer, skipping it.");
-            }
-        }
-
-        return resultSet;
+    public static TreeSet<Integer> getIntegerTreeSetFromUser() {
+        return getIntegerCollectionFromUser(new TreeSet<>());
     }
 
     private static void checkIfArrayEmpty(String[] strings) throws IllegalArgumentException {
@@ -174,6 +163,13 @@ public final class Util {
             }
         }
         return false;
+    }
+
+    public static TreeSet<Integer> merge2SetsTo1Set(TreeSet<Integer> setA, TreeSet<Integer> setB) {
+        TreeSet<Integer> resultSet = new TreeSet<>(setA);
+        resultSet.addAll(setB);
+
+        return resultSet;
     }
 
 }
