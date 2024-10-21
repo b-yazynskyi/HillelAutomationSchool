@@ -20,7 +20,7 @@ public final class Util {
         return input.split("\\s+");
     }
 
-    public static <T extends Collection<Integer>> T getIntegerCollectionFromUser(T collection) {
+    private static <T extends Collection<Integer>> T getIntegerCollectionFromUser(T collection) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter integers separated by spaces");
