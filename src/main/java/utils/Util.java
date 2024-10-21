@@ -119,21 +119,17 @@ public final class Util {
         checkIfArrayEmpty(strings);
 
         Map<String, Integer> wordCount = new HashMap<>();
-        StringBuilder result = new StringBuilder();
-        boolean isWordAdded = false;
+        String result = "";
 
         for (String word : strings) {
             wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
 
             if (wordCount.get(word) % 2 == 0) {
-                if (!result.toString().contains(word)) {
-                    result.append(word);
-                    isWordAdded = true;
-                }
+                    result = word;
             }
         }
 
-        return isWordAdded ? result.toString() : "";
+        return result;
     }
 
     public static int findTheMostRepeatedElement(List<Integer> list) {
