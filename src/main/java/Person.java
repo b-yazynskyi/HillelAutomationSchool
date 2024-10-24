@@ -4,6 +4,12 @@ public abstract class Person implements Displayable {
     private PersonRole profession;
 
     public Person(String name, int age, PersonRole profession) {
+        if (age < 0) {
+            throw new IllegalArgumentException("Age must be greater than 0");
+        }
+        if (name.length() < 2) {
+            throw new IllegalArgumentException("Name must be greater than 0");
+        }
         this.name = name;
         this.age = age;
         this.profession = profession;
