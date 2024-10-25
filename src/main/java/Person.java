@@ -7,8 +7,8 @@ public abstract class Person implements Displayable {
         if (age < 0) {
             throw new IllegalArgumentException("Age must be greater than 0");
         }
-        if (name.length() < 2) {
-            throw new IllegalArgumentException("Name must be greater than 0");
+        if (name == null) {
+            throw new NullNameException("Name must be greater than 0");
         }
         this.name = name;
         this.age = age;
