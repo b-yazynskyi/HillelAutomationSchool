@@ -2,7 +2,7 @@ public class Main {
     public static void main(String[] args) {
 
         try {
-            Person person1 = new Man("John", 25, PersonRole.ENGINEER);
+            Person person1 = new Man(null,25, PersonRole.ENGINEER);
             Person person2 = new Woman("Mary", 25, PersonRole.TEACHER);
             Person person3 = new Man("Bob", 35, PersonRole.DOCTOR);
             Person person4 = new Woman("Alice", 28, PersonRole.ARCHITECT);
@@ -20,7 +20,7 @@ public class Main {
 
             person1.displayInformation("Anton");
             person2.displayInformation("Julia", PersonRole.STUDENT);
-        } catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException | NullNameException e) {
             System.out.println(e.getMessage());
         }
 
