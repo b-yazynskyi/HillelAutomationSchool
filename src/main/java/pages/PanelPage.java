@@ -4,9 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.net.URL;
 import java.util.Objects;
 
+import static pages.PanelPageSelectors.FUEL_EXPENSES_BUTTON;
 import static pages.PanelPageSelectors.GARAGE_BUTTON;
 
 public class PanelPage extends BasePage{
@@ -25,6 +25,14 @@ public class PanelPage extends BasePage{
         }
 
         return garageButton.getText();
+    }
+
+    public String getTextOfFuelExpensesButton() {
+        if (Objects.isNull(fuelExpensesButton)) {
+            fuelExpensesButton = getDriver().findElement(By.xpath(FUEL_EXPENSES_BUTTON));
+        }
+
+        return fuelExpensesButton.getText();
     }
 
     public void openPage() {
