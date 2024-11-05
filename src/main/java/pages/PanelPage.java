@@ -6,8 +6,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.Objects;
 
-import static pages.PanelPageSelectors.FUEL_EXPENSES_BUTTON;
-import static pages.PanelPageSelectors.GARAGE_BUTTON;
+import static pages.PanelPageSelectors.*;
 
 public class PanelPage extends BasePage{
     private static final String URL = "/panel";
@@ -33,6 +32,14 @@ public class PanelPage extends BasePage{
         }
 
         return fuelExpensesButton.getText();
+    }
+
+    public String getTextOfInstructionsButton() {
+        if (Objects.isNull(instructionsButton)) {
+            instructionsButton = getDriver().findElement(By.xpath(INSTRUCTIONS_BUTTON));
+        }
+
+        return instructionsButton.getText();
     }
 
     public void openPage() {
