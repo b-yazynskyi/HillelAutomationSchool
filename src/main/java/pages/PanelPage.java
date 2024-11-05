@@ -13,6 +13,7 @@ public class PanelPage extends BasePage{
     private WebElement garageButton;
     private WebElement fuelExpensesButton;
     private WebElement instructionsButton;
+    private WebElement logOutButton;
 
     public PanelPage(WebDriver driver) {
         super(driver);
@@ -40,6 +41,14 @@ public class PanelPage extends BasePage{
         }
 
         return instructionsButton.getText();
+    }
+
+    public String getTextOfLogOutButton() {
+        if (Objects.isNull(logOutButton)) {
+            logOutButton = getDriver().findElement(By.xpath(LOG_OUT_BUTTON));
+        }
+
+        return logOutButton.getText();
     }
 
     public PanelPage openPage() {
