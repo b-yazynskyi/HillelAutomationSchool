@@ -13,7 +13,7 @@ public abstract class BasePage implements Page{
         return driver;
     }
 
-    public void openPage(String path) {
+    protected void openPage(String path) {
         driver.get(BASE_URL + path);
     }
 }
