@@ -13,12 +13,13 @@ public class MainPage extends BasePage{
         super(driver);
     }
 
-    public void clickGuestLogInButton() {
+    public PanelPage clickGuestLogInButton() {
         if (Objects.isNull(guestLogInButton)) {
             guestLogInButton = getDriver().findElement(By.xpath(GUEST_LOG_IN_BUTTON));
         }
 
         guestLogInButton.click();
+        return new PanelPage(getDriver());
     }
 
 
