@@ -9,6 +9,7 @@ public abstract class BasePage implements Page{
         this.driver = driver;
     }
 
+    @Override
     public WebDriver getDriver() {
         return driver;
     }
