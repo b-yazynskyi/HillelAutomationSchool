@@ -2,6 +2,8 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 
+import java.util.Objects;
+
 public abstract class BasePage implements Page{
     private final WebDriver driver;
 
@@ -15,6 +17,10 @@ public abstract class BasePage implements Page{
     }
 
     protected void openPage(String path) {
-        driver.get(BASE_URL + path);
+        if (Objects.isNull(path)) {
+            driver.get(BASE_URL);
+        } else {
+            driver.get(BASE_URL + path);
+        }
     }
 }
