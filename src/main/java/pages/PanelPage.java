@@ -42,8 +42,9 @@ public class PanelPage extends BasePage{
         return instructionsButton.getText();
     }
 
-    public void openPage() {
+    public PanelPage openPage() {
         super.openPage(URL);
+        return this;
     }
 
 }
