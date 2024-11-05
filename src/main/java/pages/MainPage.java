@@ -24,5 +24,7 @@ public class MainPage extends BasePage{
         return new PanelPage(getDriver());
     }
 
-
+    public void openPage() {
+        super.openPage(null);
+    }
 }
