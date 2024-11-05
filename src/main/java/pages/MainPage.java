@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 
 import java.util.Objects;
 
+import static pages.MainPageSelectors.GUEST_LOG_IN_BUTTON;
+
 public class MainPage extends BasePage{
     private WebElement guestLogInButton;
 
