@@ -5,4 +5,5 @@ public interface PanelPageSelectors {
     String FUEL_EXPENSES_BUTTON = "//a[@routerLink='expenses']";
     String INSTRUCTIONS_BUTTON = "//a[@routerLink='instructions']";
     String LOG_OUT_BUTTON = "//a[@class='btn btn-link text-danger btn-sidebar sidebar_btn']";
+    String BORDER_MENU_BUTTONS = "//*[contains(@class , 'btn-sidebar sidebar_btn')]";
 }
