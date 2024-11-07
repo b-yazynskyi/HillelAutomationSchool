@@ -5,7 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.page;
 
-public class QaAutoForStudyPage {
+public class QaAutoForStudyPage extends BasePage {
     private final SelenideElement GUEST_LOG_IN_BUTTON = $x("//button[@class='header-link -guest']");
 
     public PanelPage clickGuestLogInPage() {

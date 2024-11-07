@@ -8,7 +8,7 @@ import java.util.Objects;
 
 import static com.codeborne.selenide.Selenide.$$x;
 
-public class PanelPage {
+public class PanelPage extends BasePage{
     private final ElementsCollection BORDER_MENU_BUTTONS =
             $$x("//*[contains(@class, \"btn-sidebar sidebar_btn\")]");
 
