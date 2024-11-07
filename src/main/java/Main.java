@@ -14,11 +14,16 @@ public class Main {
         Configuration.browser = WbDriver.class.getName();
         Configuration.headless = AppConstants.HEADLESS_PROP_MODE;
 
-        open(AppConstants.BASE_URL);
+        try {
+            open(AppConstants.BASE_URL);
 
-        QaAutoForStudyPage qaAutoForStudyPage = new QaAutoForStudyPage();
-        List<String> textOfBorderMenuButtons = qaAutoForStudyPage.clickGuestLogInPage().getTextOfBorderMenuButtons();
+            QaAutoForStudyPage qaAutoForStudyPage = new QaAutoForStudyPage();
+            List<String> textOfBorderMenuButtons = qaAutoForStudyPage.clickGuestLogInPage().getTextOfBorderMenuButtons();
 
-        textOfBorderMenuButtons.forEach(System.out::println);
+            textOfBorderMenuButtons.forEach(System.out::println);
+        } catch (Exception e) {
+            System.out.println("Unfortunately test failed");
+        }
+
     }
 }
