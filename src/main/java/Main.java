@@ -1,5 +1,4 @@
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.MainPage;
 import pages.PanelPage;
@@ -12,13 +11,18 @@ public class Main {
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        MainPage mainPage = new MainPage(driver);
-        PanelPage panelPage = mainPage.openPage().clickGuestLogInButton();
+        try {
+            MainPage mainPage = new MainPage(driver);
+            PanelPage panelPage = mainPage.openPage().clickGuestLogInButton();
 
-        List<String> borderMenuButtonsText = panelPage.getBorderMenuButtonsText();
+            List<String> borderMenuButtonsText = panelPage.getBorderMenuButtonsText();
 
-        borderMenuButtonsText.forEach(System.out::println);
+            borderMenuButtonsText.forEach(System.out::println);
 
-        driver.quit();
+            driver.quit();
+        } catch (Exception e) {
+            System.out.println("Unfortunately test failed");
+        }
+
     }
 }
