@@ -22,6 +22,8 @@ public class Main {
             driver.quit();
         } catch (Exception e) {
             System.out.println("Unfortunately test failed");
+        } finally {
+            driver.quit();
         }
 
     }
