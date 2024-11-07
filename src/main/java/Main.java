@@ -19,7 +19,6 @@ public class Main {
 
             borderMenuButtonsText.forEach(System.out::println);
 
-            driver.quit();
         } catch (Exception e) {
             System.out.println("Unfortunately test failed");
         } finally {
