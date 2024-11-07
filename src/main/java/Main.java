@@ -1,6 +1,5 @@
 import com.codeborne.selenide.Configuration;
 import driver.WbDriver;
-import pages.PanelPage;
 import pages.QaAutoForStudyPage;
 import utils.AppConstants;
 
