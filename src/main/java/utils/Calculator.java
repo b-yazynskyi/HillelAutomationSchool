@@ -40,5 +40,23 @@ public final class Calculator {
         return result;
     }
 
+    public static int multiply(int... numbers) {
+        int result = 1;
+        for (int number : numbers) {
+            result *= number;
+        }
+
+        return result;
+    }
+
+    public static double multiply(double... numbers) {
+        double result = 1;
+        for (double number : numbers) {
+            result *= number;
+        }
+
+        return result;
+    }
+
 
 }
