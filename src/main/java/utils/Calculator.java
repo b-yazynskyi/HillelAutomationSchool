@@ -88,6 +88,8 @@ public final class Calculator {
             }
 
         }
+
+        return result;
     }
 
 }
