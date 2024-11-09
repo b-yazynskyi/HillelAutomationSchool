@@ -58,5 +58,36 @@ public final class Calculator {
         return result;
     }
 
+    public static int divide(int... numbers) throws ArithmeticException {
+        if (numbers.length == 0) {
+            throw new IllegalArgumentException("At least 1 number must be");
+        }
+
+        int result = numbers[0];
+
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i] == 0) {
+                throw new ArithmeticException("The divisor 0 is impossible");
+            }
+            result /= numbers[i];
+        }
+
+        return result;
+    }
+
+    public static double divide(double... numbers) throws ArithmeticException {
+        if (numbers.length == 0) {
+            throw new IllegalArgumentException("At least 1 number must be");
+        }
+
+        double result = numbers[0];
+
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i] == 0) {
+                throw new ArithmeticException("The divisor 0 is impossible")
+            }
+
+        }
+    }
 
 }
