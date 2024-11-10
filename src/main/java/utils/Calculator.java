@@ -43,6 +43,7 @@ public final class Calculator {
                 throw new ArithmeticException("The divisor 0 is impossible");
             }
 
+            result /= numbers[i];
         }
 
         return result;
