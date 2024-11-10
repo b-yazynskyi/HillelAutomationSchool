@@ -14,9 +14,9 @@ public class Calculator {
     }
 
     public double subtract(double... numbers) {
-        double result = 0;
-        for (double number : numbers) {
-            result -= number;
+        double result = numbers[0];
+        for (int i = 1; i < numbers.length; i++) {
+            result -= numbers[i];
         }
 
         return result;
