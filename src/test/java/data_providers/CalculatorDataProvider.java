@@ -20,4 +20,13 @@ public class CalculatorDataProvider {
                 {1.87, 5, 3.13}
         };
     }
+
+    @DataProvider
+    public Object[][] multiplyCalculatorDataProvider() {
+        return new Object[][] {
+                {20, 10, 2},
+                {1000, 5, 200},
+                {2147483647, 536870911.75, 2, 2}
+        };
+    }
 }
