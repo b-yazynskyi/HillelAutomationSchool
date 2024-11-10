@@ -1,10 +1,10 @@
 package utils;
 
-public final class Calculator {
+public class Calculator {
 
-    private Calculator() {}
+    public Calculator() {}
 
-    public static double add(double... numbers) {
+    public double add(double... numbers) {
         double result = 0;
         for (double number : numbers) {
             result += number;
@@ -13,7 +13,7 @@ public final class Calculator {
         return result;
     }
 
-    public static double subtract(double... numbers) {
+    public double subtract(double... numbers) {
         double result = 0;
         for (double number : numbers) {
             result -= number;
@@ -22,7 +22,7 @@ public final class Calculator {
         return result;
     }
 
-    public static double multiply(double... numbers) {
+    public double multiply(double... numbers) {
         double result = 1;
         for (double number : numbers) {
             result *= number;
@@ -31,7 +31,7 @@ public final class Calculator {
         return result;
     }
 
-    public static double divide(double... numbers) throws ArithmeticException {
+    public double divide(double... numbers) throws ArithmeticException {
         if (numbers.length == 0) {
             throw new IllegalArgumentException("At least 1 number must be");
         }
