@@ -7,6 +7,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import utils.Calculator;
 
+import java.util.Arrays;
+
 public class CalculatorTest extends BaseTest {
     private Calculator calculator;
 
@@ -16,10 +18,33 @@ public class CalculatorTest extends BaseTest {
     }
 
     @Test(priority = 1, dataProviderClass = CalculatorDataProvider.class, dataProvider = "addCalculatorDataProvider",
-        description = "Test where we adding some amount of numbers and expect this data")
+        description = "Test where we adding some amount of numbers")
     public void testAddition(double expectedResult, double... numbers) {
         double result = calculator.add(numbers);
 
+        System.out.println("The result of adding numbers: " + Arrays.toString(numbers) + " is " + result);
+        Assert.assertEquals(result, expectedResult);
+    }
+
+    @Test(priority = 2, dataProviderClass = CalculatorDataProvider.class,
+            dataProvider = "subtractCalculatorDataProvider",
+            description = "Test where we subtracting some amount of numbers"
+    )
+    public void testSubtraction(double expectedResult, double... numbers) {
+        double result = calculator.subtract(numbers);
+
+        System.out.println("The result of subtraction numbers: " + Arrays.toString(numbers) + " is " + result);
+        Assert.assertEquals(result, expectedResult);
+    }
+
+    @Test(priority = 1, dataProviderClass = CalculatorDataProvider.class,
+            dataProvider = "multiplyCalculatorDataProvider",
+            description = "Test where we multiplying some amount of numbers"
+    )
+    public void testMultiplication(double expectedResult, double... numbers) {
+        double result = calculator.multiply(numbers);
+
+        System.out.println("The result of multiplying numbers: " + Arrays.toString(numbers) + " is " + result);
         Assert.assertEquals(result, expectedResult);
     }
 
