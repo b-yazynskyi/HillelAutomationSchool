@@ -29,4 +29,20 @@ public class CalculatorDataProvider {
                 {2147483647, 536870911.75, 2, 2}
         };
     }
+
+    @DataProvider
+    public Object[][] divideCalculatorDataProvider() {
+        return new Object[][] {
+                {20, 40, 2},
+                {232, 464, 2},
+                {350, 36750, 15, 7}
+        };
+    }
+
+    @DataProvider
+    public Object[][] zeroDivisionCalculatorDataProvider() {
+        return new Object[][] {
+                {15, 0}
+        };
+    }
 }
