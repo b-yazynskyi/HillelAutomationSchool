@@ -26,7 +26,7 @@ public class CalculatorTest extends BaseTest {
         Assert.assertEquals(result, expectedResult);
     }
 
-    @Test(priority = 2, dataProviderClass = CalculatorDataProvider.class,
+    @Test(priority = 1, dataProviderClass = CalculatorDataProvider.class,
             dataProvider = "subtractCalculatorDataProvider",
             description = "Test where we subtracting some amount of numbers"
     )
