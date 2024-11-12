@@ -1,6 +1,7 @@
 package pages.mainPages;
 
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.support.Color;
 import pages.basePage.BasePage;
 
 import static com.codeborne.selenide.Selenide.$x;
@@ -14,7 +15,8 @@ public class QaAutoForStudyPage extends BasePage {
     }
 
     public String getBackGroundColorForSignUp() {
-        return SIGN_UP.getAttribute("background-color");
+        String backGroundColor = SIGN_UP.getCssValue("background-color");
+        return Color.fromString(backGroundColor).asHex();
     }
 
 }
