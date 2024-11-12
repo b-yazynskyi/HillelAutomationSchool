@@ -44,15 +44,14 @@ public class QaAutoForStudyTest extends BaseTest {
 
         String backGroundColor = qaAutoForStudyPage.getBackGroundColorForSignUp();
 
-        boolean isBackGroundColorEquals = Objects.equals(backGroundColor, expectedBackGroundColor);
-
-        if (isBackGroundColorEquals) {
+        if (Objects.equals(backGroundColor, expectedBackGroundColor)) {
             System.out.println("Background color of Sign up button is correct");
         } else {
             System.out.println("Background color of Sign up button is incorrect");
         }
 
-        Assert.assertTrue(isBackGroundColorEquals);
+        // Make using assertEquals in order to see difference when test fails, instead of assertTrue
+        Assert.assertEquals(backGroundColor, expectedBackGroundColor);
     }
 }
 
