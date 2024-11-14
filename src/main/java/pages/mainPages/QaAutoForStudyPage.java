@@ -21,5 +21,4 @@ public class QaAutoForStudyPage extends BasePage {
         String backGroundColor = SIGN_UP.getCssValue("background-color");
         return Color.fromString(backGroundColor).asHex();
     }
-
 }
