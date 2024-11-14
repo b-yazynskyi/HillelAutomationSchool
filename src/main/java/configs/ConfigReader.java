@@ -1,4 +1,4 @@
-package utils.configs;
+package configs;
 
 import java.io.IOException;
 import java.util.Properties;
