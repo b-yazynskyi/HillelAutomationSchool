@@ -1,6 +1,6 @@
 package utils;
 
-import utils.configs.ConfigReader;
+import configs.ConfigReader;
 
 public class AppConstants {
     public static final boolean HEADLESS_APP_MODE = Boolean.parseBoolean(ConfigReader.loadConfig("headless"));
