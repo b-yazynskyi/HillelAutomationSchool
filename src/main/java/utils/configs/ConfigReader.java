@@ -6,7 +6,7 @@ import java.util.Properties;
 public class ConfigReader {
     private static final String CONFIG_FILE = "/app.config";
     private static ConfigReader instance = null;
-    private Properties properties;
+    private final Properties properties;
 
     public synchronized static ConfigReader getInstance() {
         if (instance == null) {
