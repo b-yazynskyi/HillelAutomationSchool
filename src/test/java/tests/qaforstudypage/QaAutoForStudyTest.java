@@ -1,6 +1,7 @@
 package tests.qaforstudypage;
 
 import data_providers.QaForStudyDataProvider;
+import io.qameta.allure.Feature;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -12,6 +13,7 @@ import java.util.Objects;
 import static pages.basePage.BasePage.navigateToPage;
 import static utils.AppConstants.BASE_URL;
 
+@Feature("QA for study page tests")
 public class QaAutoForStudyTest extends BaseTest {
     private QaAutoForStudyPage qaAutoForStudyPage;
 
