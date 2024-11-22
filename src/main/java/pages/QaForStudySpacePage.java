@@ -18,9 +18,10 @@ public class QaForStudySpacePage {
     }
 
     public String getBackGroundColorOfSignUp() {
-        SIGN_UP_BUTTON.shouldHave(Condition.cssValue("background-color", "#0275d8"));
+        SIGN_UP_BUTTON.shouldHave(Condition.cssValue("background-color",
+                "rgba(2, 117, 216, 1)"));
 
-        return Color.fromString(SIGN_UP_BUTTON.getCssValue("background-color")).toString();
+        return Color.fromString(SIGN_UP_BUTTON.getCssValue("background-color")).asHex();
     }
 
     public static QaForStudySpacePage openPage() {
