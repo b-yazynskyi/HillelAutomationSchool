@@ -5,6 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.Color;
 
 import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.open;
 
 public class QaForStudySpacePage {
     private final SelenideElement LOGO_PAGE = $x("//*[@class='header_left d-flex align-items-center']");
@@ -20,5 +21,11 @@ public class QaForStudySpacePage {
         SIGN_UP_BUTTON.shouldHave(Condition.cssValue("background-color", "#0275d8"));
 
         return Color.fromString(SIGN_UP_BUTTON.getCssValue("background-color")).toString();
+    }
+
+    public static QaForStudySpacePage openPage() {
+        open();
+
+        return new QaForStudySpacePage();
     }
 }
