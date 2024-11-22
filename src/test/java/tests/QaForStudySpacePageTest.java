@@ -2,6 +2,7 @@ package tests;
 
 import dataProviders.QaForStudySpacePageDataProvider;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.QaForStudySpacePage;
@@ -12,6 +13,11 @@ public class QaForStudySpacePageTest {
     @BeforeMethod
     public void initPages() {
         qaForStudySpacePage = QaForStudySpacePage.openPage();
+    }
+
+    @AfterMethod
+    public void tearDown() {
+        qaForStudySpacePage = null;
     }
 
     @Test(testName = "IsLogoDisplayed", description = "Check either Logo displayed or not")
