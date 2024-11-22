@@ -24,7 +24,7 @@ public class QaForStudySpacePage {
     }
 
     public static QaForStudySpacePage openPage() {
-        open();
+        open("");
 
         return new QaForStudySpacePage();
     }
