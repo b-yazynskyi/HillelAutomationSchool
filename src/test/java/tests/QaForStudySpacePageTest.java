@@ -1,12 +1,15 @@
 package tests;
 
 import dataProviders.QaForStudySpacePageDataProvider;
+import io.qameta.allure.Feature;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.QaForStudySpacePage;
 
+@Feature("Tests for QaForStudySpace page")
 public class QaForStudySpacePageTest {
     private QaForStudySpacePage qaForStudySpacePage;
 
