@@ -13,8 +13,9 @@ import static com.codeborne.selenide.Selenide.open;
 public class QaForStudySpacePage {
     private final SelenideElement LOGO_PAGE = $x("//*[@class='header_left d-flex align-items-center']");
     private final SelenideElement SIGN_UP_BUTTON = $x("//*[@class='hero-descriptor_btn btn btn-primary']");
+    private final SelenideElement VIDEO_BLOCK_TITTLE = $x("//*[@class='ytp-title-link yt-uix-sessionlink']");
 
-    @Step("checkIsLogoDisplayed")
+    @Step("Check is logo displayed")
     public boolean checkIsLogoDisplayed() {
         log.info("checking is logo displayed");
         LOGO_PAGE.shouldBe(Condition.visible);
@@ -22,13 +23,21 @@ public class QaForStudySpacePage {
         return LOGO_PAGE.isDisplayed();
     }
 
-    @Step("getBackGroundColorOfSignUp")
+    @Step("Get background color of SignUp button")
     public String getBackGroundColorOfSignUp() {
         log.info("Getting background color of Sign Up button");
         SIGN_UP_BUTTON.shouldHave(Condition.cssValue("background-color",
                 "rgba(2, 117, 216, 1)"));
 
         return Color.fromString(SIGN_UP_BUTTON.getCssValue("background-color")).asHex();
+    }
+
+    @Step("Get tittle of video block")
+    public String getTittleOfVideoBlock() {
+        log.info("Getting tittle of video block");
+        VIDEO_BLOCK_TITTLE.shouldHave(Condition.exactText("Hillel IT School | Учись ради мечты! - YouTube"));
+
+        return VIDEO_BLOCK_TITTLE.text();
     }
 
     @Step("Open page")
