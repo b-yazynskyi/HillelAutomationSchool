@@ -10,4 +10,11 @@ public class QaForStudySpacePageDataProvider {
                 "#0275d8"
         };
     }
+
+    @DataProvider
+    public Object[] tittleOfVideoBlockDataProvider() {
+        return new Object[] {
+                "Hillel IT School | Учись ради мечты! - YouTube"
+        };
+    }
 }
