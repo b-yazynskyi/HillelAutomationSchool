@@ -50,7 +50,7 @@ public class QaForStudySpacePageTest {
     public void videoFrameTittleTest(String expectedResult) {
         String actualResult = qaForStudySpacePage.getTittleOfVideoBlock();
 
-        Assert.assertEquals(actualResult, expectedResult);
+        Assert.assertEquals(actualResult, expectedResult, "Title doesn’t equals to the expected result");
     }
 
     @Test(testName = "socialNetworkUrlTest",
@@ -61,13 +61,14 @@ public class QaForStudySpacePageTest {
     public void socialNetworkUrlTest(String networkName, String expectedUrl) {
         String actualUrl = qaForStudySpacePage.clickOnSocialNetworkLink(networkName);
 
-        Assert.assertTrue(actualUrl.contains(expectedUrl));
+        Assert.assertTrue(actualUrl.contains(expectedUrl), "Incorrect url of Social network");
     }
 
     @Test(testName = "socialIconsInFooterTest",
             description = "Check that there is all social links in footer"
     )
     public void socialIconsInFooterTest() {
-        Assert.assertTrue(qaForStudySpacePage.checkSocialLinksFromFooter());
+        Assert.assertTrue(qaForStudySpacePage.checkSocialLinksFromFooter(),
+                "Social network block doesn’t contain 5 items");
     }
 }
