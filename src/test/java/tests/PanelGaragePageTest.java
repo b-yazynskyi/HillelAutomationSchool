@@ -3,12 +3,13 @@ package tests;
 import dataProviders.PanelGaragePageDataProvider;
 import io.qameta.allure.Feature;
 import listeners.TestRunListener;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+import org.testng.asserts.SoftAssert;
 import pages.PanelGaragePage;
 import pages.QaForStudySpacePage;
+
+import java.time.LocalDate;
+import java.util.Optional;
 
 @Listeners({TestRunListener.class})
 @Feature("Test for Panel Garage page")
@@ -31,9 +32,10 @@ public class PanelGaragePageTest {
     @Test(testName = "addCarAsGuestUserTest",
             description = "Testing flow from log in as guest to adding new car",
             dataProviderClass = PanelGaragePageDataProvider.class,
-            dataProvider = "dataForAddNewCarIntoGarage"
+            dataProvider = "dataForAddNewCarIntoGarage",
+            groups = "Adding car to garage group"
     )
-    public void addCarAsGuestUserTest(String brandName, String modelName, String millageNumber) {
+    public void addCarAsGuestUserTest(String brandName, String modelName, String millageNumber, String imageUrlName) {
         qaForStudySpacePage
                 .clickGuestLogInButton()
                 .clickAddCarButton()
@@ -42,5 +44,21 @@ public class PanelGaragePageTest {
                 .enterValueToMillageField(millageNumber)
                 .clickAddButtonInModal();
 
+        SoftAssert softAssert = new SoftAssert();
+
+        softAssert.assertEquals(panelGaragePage.getCarNameFromGarage(), brandName + " " + modelName);
+        softAssert.assertEquals(panelGaragePage.getDateFromMileageUpdate(), LocalDate.now());
+        softAssert.assertEquals(panelGaragePage.getInfoFromMileageInput(),
+                Integer.valueOf(millageNumber));
+        softAssert.assertTrue(panelGaragePage.checkLogoVisibility());
+        softAssert.assertEquals(panelGaragePage.getUrlOfLogoEnds(), imageUrlName);
+        softAssert.assertAll();
+    }
+
+    @AfterGroups("Adding car to garage group")
+    public void removeCarFromGarage() {
+        panelGaragePage
+                .clickOnEditButton()
+                .clickRemoveCarButton();
     }
 }
