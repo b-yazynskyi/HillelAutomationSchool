@@ -23,6 +23,7 @@ public class QaForStudySpacePage {
     private final ElementsCollection SOCIAL_LINKS_IN_FOOTER = $$x("//*[@class='socials_link']");
     private final SelenideElement SOCIAL_LINKS_BLOCK_IN_FOOTER
             = $x("//div[@class='contacts_socials socials']");
+    private final SelenideElement GUEST_LOG_IN_BUTTON = $x("//*[@class='header-link -guest']");
 
     @Step("Check is logo displayed")
     public boolean checkIsLogoDisplayed() {
@@ -79,6 +80,13 @@ public class QaForStudySpacePage {
         Selenide.switchTo().window(0);
 
         return actualUrl;
+    }
+
+    @Step("Click Guest log in button")
+    public PanelGaragePage clickGuestLogInButton() {
+        GUEST_LOG_IN_BUTTON.shouldBe(Condition.visible).click();
+
+        return new PanelGaragePage();
     }
 
     @Step("Open page")
