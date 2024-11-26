@@ -49,12 +49,14 @@ public class PanelGaragePage {
     }
 
     @Step("Click on Add car button")
-    public void clickAddCarButton() {
+    public PanelGaragePage clickAddCarButton() {
         ADD_CAR_BUTTON.shouldBe(Condition.visible).click();
+
+        return this;
     }
 
     @Step("Open page")
-    public PanelGaragePage openPage() {
+    public static PanelGaragePage openPage() {
         log.info("Opening panel Garage page");
         open("/panel/garage");
 
