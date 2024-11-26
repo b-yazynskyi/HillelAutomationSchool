@@ -7,6 +7,7 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.support.Color;
+import org.testng.Assert;
 
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Selenide.*;
@@ -85,6 +86,8 @@ public class QaForStudySpacePage {
     @Step("Click Guest log in button")
     public PanelGaragePage clickGuestLogInButton() {
         GUEST_LOG_IN_BUTTON.shouldBe(Condition.visible).click();
+
+        Assert.assertEquals(getWebDriver().getCurrentUrl(), "https://qauto.forstudy.space/panel/garage");
 
         return new PanelGaragePage();
     }
