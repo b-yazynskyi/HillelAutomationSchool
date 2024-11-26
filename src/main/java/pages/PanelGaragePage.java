@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.open;
 
 @Slf4j
-public class PanelGaragePage {
+public class PanelGaragePage extends PanelPage {
     private final SelenideElement ADD_CAR_BUTTON = $x("//*[@class='btn btn-primary']");
     private final SelenideElement CAR_BRAND_SELECT = $x("//select[@id='addCarBrand']");
     private final SelenideElement CAR_MODEL_SELECT = $x("//select[@id='addCarModel']");
