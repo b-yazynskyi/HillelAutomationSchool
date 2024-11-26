@@ -1,12 +1,14 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.open;
@@ -16,7 +18,7 @@ public class PanelGaragePage extends PanelPage {
     private final SelenideElement ADD_CAR_BUTTON = $x("//*[@class='btn btn-primary']");
     private final SelenideElement CAR_BRAND_SELECT = $x("//select[@id='addCarBrand']");
     private final SelenideElement CAR_MODEL_SELECT = $x("//select[@id='addCarModel']");
-    private final SelenideElement CAR_MILEAGE_FIELD = $x("//select[@id='addCarMileage']");
+    private final SelenideElement CAR_MILEAGE_FIELD = $x("//input[@id='addCarMileage']");
     private final SelenideElement ADD_MODAL_BUTTON
             = $x("//div[@class='modal-footer d-flex justify-content-end']" +
             "/button[@class='btn btn-primary']");
@@ -94,7 +96,7 @@ public class PanelGaragePage extends PanelPage {
         String dateFromMileageField = infoFromDate[1].trim();
         log.info("Date from mileage field is {}", dateFromMileageField);
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         LocalDate date = LocalDate.parse(dateFromMileageField, formatter);
         log.info("Date after parsing: {}", date);
 
@@ -104,7 +106,7 @@ public class PanelGaragePage extends PanelPage {
     @Step("Get info from mileage input")
     public Integer getInfoFromMileageInput() {
         log.info("Getting info from mileage input");
-        return Integer.parseInt(MILEAGE_INPUT.shouldBe(Condition.visible).getText());
+        return Integer.parseInt(Objects.requireNonNull(MILEAGE_INPUT.shouldBe(Condition.visible).getValue()));
     }
 
     @Step("Check logo visibility of car")
@@ -115,8 +117,9 @@ public class PanelGaragePage extends PanelPage {
         return true;
     }
 
-    @Step("Get the link end of logo")
-    public String getLinkOfLogoEndsCorrect() {
+    @Step("Get the url end of logo")
+    public String getUrlOfLogoEnds() {
+        log.info("Getting the end of URL in src for logo");
         String[] temp = new String[0];
 
         String srcUrlOfLogo = CAR_LOGO.shouldBe(Condition.visible).getAttribute("src");
