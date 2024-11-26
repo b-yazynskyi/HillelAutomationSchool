@@ -17,6 +17,10 @@ public class PanelGaragePage extends PanelPage {
     private final SelenideElement ADD_MODAL_BUTTON
             = $x("//div[@class='modal-footer d-flex justify-content-end']" +
             "/button[@class='btn btn-primary']");
+    private final SelenideElement CAR_NAME_FIELD = $x("//p[@class='car_name h2']");
+    private final SelenideElement MILEAGE_DATE_FIELD = $x("//p[@class='car_update-mileage']");
+    private final SelenideElement MILEAGE_INPUT = $x("//input[@name='miles']");
+    private final SelenideElement CAR_LOGO = $x("//img[@class='car-logo_img']");
 
     @Step("Select brand in modal window")
     public PanelGaragePage selectBrandInModal(String brandName) {
