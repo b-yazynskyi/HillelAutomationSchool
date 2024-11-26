@@ -85,6 +85,7 @@ public class QaForStudySpacePage {
 
     @Step("Click Guest log in button")
     public PanelGaragePage clickGuestLogInButton() {
+        log.info("Clicking on Guest log in button");
         GUEST_LOG_IN_BUTTON.shouldBe(Condition.visible).click();
 
         Assert.assertEquals(getWebDriver().getCurrentUrl(), "https://qauto.forstudy.space/panel/garage");
