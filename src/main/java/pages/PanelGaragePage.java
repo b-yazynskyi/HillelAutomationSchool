@@ -21,6 +21,8 @@ public class PanelGaragePage extends PanelPage {
     private final SelenideElement MILEAGE_DATE_FIELD = $x("//p[@class='car_update-mileage']");
     private final SelenideElement MILEAGE_INPUT = $x("//input[@name='miles']");
     private final SelenideElement CAR_LOGO = $x("//img[@class='car-logo_img']");
+    private final SelenideElement EDIT_CAR_BLOCK_BUTTON = $x("//button[@class='car_edit btn btn-edit']");
+    private final SelenideElement REMOVE_CAR_BUTTON = $x("//button[@class='btn btn-outline-danger']");
 
     @Step("Select brand in modal window")
     public PanelGaragePage selectBrandInModal(String brandName) {
@@ -55,6 +57,20 @@ public class PanelGaragePage extends PanelPage {
     @Step("Click on Add car button")
     public PanelGaragePage clickAddCarButton() {
         ADD_CAR_BUTTON.shouldBe(Condition.visible).click();
+
+        return this;
+    }
+
+    @Step("Click on edit button")
+    public PanelGaragePage clickOnEditButton() {
+        EDIT_CAR_BLOCK_BUTTON.shouldBe(Condition.clickable).click();
+
+        return this;
+    }
+
+    @Step("Click remove car button")
+    public PanelGaragePage clickRemoveCarButton() {
+        REMOVE_CAR_BUTTON.shouldBe(Condition.clickable).click();
 
         return this;
     }
