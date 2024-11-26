@@ -5,6 +5,9 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import lombok.extern.slf4j.Slf4j;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -56,6 +59,7 @@ public class PanelGaragePage extends PanelPage {
 
     @Step("Click on Add car button")
     public PanelGaragePage clickAddCarButton() {
+        log.info("Clicking add car button");
         ADD_CAR_BUTTON.shouldBe(Condition.visible).click();
 
         return this;
@@ -63,6 +67,7 @@ public class PanelGaragePage extends PanelPage {
 
     @Step("Click on edit button")
     public PanelGaragePage clickOnEditButton() {
+        log.info("Clicking on edit button");
         EDIT_CAR_BLOCK_BUTTON.shouldBe(Condition.clickable).click();
 
         return this;
@@ -70,9 +75,57 @@ public class PanelGaragePage extends PanelPage {
 
     @Step("Click remove car button")
     public PanelGaragePage clickRemoveCarButton() {
+        log.info("Clicking on remove car button");
         REMOVE_CAR_BUTTON.shouldBe(Condition.clickable).click();
 
         return this;
+    }
+
+    @Step("Get car name from garage")
+    public String getCarNameFromGarage() {
+        log.info("Getting car name from garage");
+        return CAR_NAME_FIELD.shouldBe(Condition.visible).getText();
+    }
+
+    @Step("Get date from mileage update")
+    public LocalDate getDateFromMileageUpdate() {
+        log.info("Getting date from mileage update");
+        String[] infoFromDate = MILEAGE_DATE_FIELD.shouldBe(Condition.visible).getText().split("•");
+        String dateFromMileageField = infoFromDate[1].trim();
+        log.info("Date from mileage field is {}", dateFromMileageField);
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yy");
+        LocalDate date = LocalDate.parse(dateFromMileageField, formatter);
+        log.info("Date after parsing: {}", date);
+
+        return date;
+    }
+
+    @Step("Get info from mileage input")
+    public Integer getInfoFromMileageInput() {
+        log.info("Getting info from mileage input");
+        return Integer.parseInt(MILEAGE_INPUT.shouldBe(Condition.visible).getText());
+    }
+
+    @Step("Check logo visibility of car")
+    public boolean checkLogoVisibility() {
+        log.info("Checking logo visibility");
+        CAR_LOGO.shouldBe(Condition.image);
+
+        return true;
+    }
+
+    @Step("Get the link end of logo")
+    public String getLinkOfLogoEndsCorrect() {
+        String[] temp = new String[0];
+
+        String srcUrlOfLogo = CAR_LOGO.shouldBe(Condition.visible).getAttribute("src");
+
+        if (srcUrlOfLogo != null) {
+            temp = srcUrlOfLogo.split("/");
+        }
+
+        return temp[temp.length -1];
     }
 
     @Step("Open page")
