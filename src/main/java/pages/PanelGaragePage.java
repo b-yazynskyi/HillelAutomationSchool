@@ -28,6 +28,7 @@ public class PanelGaragePage extends PanelPage {
     private final SelenideElement CAR_LOGO = $x("//img[@class='car-logo_img']");
     private final SelenideElement EDIT_CAR_BLOCK_BUTTON = $x("//button[@class='car_edit btn btn-edit']");
     private final SelenideElement REMOVE_CAR_BUTTON = $x("//button[@class='btn btn-outline-danger']");
+    private final SelenideElement REMOVE_CAR_MODAL_BUTTON = $x("//button[@class='btn btn-danger']");
 
     @Step("Select brand in modal window")
     public PanelGaragePage selectBrandInModal(String brandName) {
@@ -79,6 +80,14 @@ public class PanelGaragePage extends PanelPage {
     public PanelGaragePage clickRemoveCarButton() {
         log.info("Clicking on remove car button");
         REMOVE_CAR_BUTTON.shouldBe(Condition.clickable).click();
+
+        return this;
+    }
+
+    @Step("Click remove button on modal window to confirm delete")
+    public PanelGaragePage clickRemoveCarModalButton() {
+        log.info("Clicking on remove car modal button to confirm delete");
+        REMOVE_CAR_MODAL_BUTTON.shouldBe(Condition.clickable).click();
 
         return this;
     }
