@@ -1,5 +1,6 @@
 package tests;
 
+import com.codeborne.selenide.Selenide;
 import dataProviders.PanelGaragePageDataProvider;
 import io.qameta.allure.Feature;
 import listeners.TestRunListener;
@@ -8,8 +9,8 @@ import org.testng.asserts.SoftAssert;
 import pages.PanelGaragePage;
 import pages.QaForStudySpacePage;
 
+import java.sql.DriverManager;
 import java.time.LocalDate;
-import java.util.Optional;
 
 @Listeners({TestRunListener.class})
 @Feature("Test for Panel Garage page")
@@ -20,11 +21,12 @@ public class PanelGaragePageTest {
     @BeforeMethod
     public void initPages() {
         qaForStudySpacePage = QaForStudySpacePage.openPage();
-        panelGaragePage = PanelGaragePage.openPage();
+        panelGaragePage = new PanelGaragePage();
     }
 
     @AfterMethod
     public void tearDown() {
+        Selenide.closeWebDriver();
         qaForStudySpacePage = null;
         panelGaragePage = null;
     }
@@ -55,10 +57,4 @@ public class PanelGaragePageTest {
         softAssert.assertAll();
     }
 
-    @AfterGroups("Adding car to garage group")
-    public void removeCarFromGarage() {
-        panelGaragePage
-                .clickOnEditButton()
-                .clickRemoveCarButton();
-    }
 }
