@@ -9,7 +9,6 @@ import org.testng.asserts.SoftAssert;
 import pages.PanelGaragePage;
 import pages.QaForStudySpacePage;
 
-import java.sql.DriverManager;
 import java.time.LocalDate;
 
 @Listeners({TestRunListener.class})
