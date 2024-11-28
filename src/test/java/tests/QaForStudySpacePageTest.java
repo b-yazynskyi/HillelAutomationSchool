@@ -41,4 +41,34 @@ public class QaForStudySpacePageTest {
         Assert.assertEquals(actualBackGroundColor, expectedBackGroundColor,
                 "Background color of Sign up button is incorrect");
     }
+
+    @Test(testName = "videoFrameTittleTest",
+            description = "Check either tittle of video block correct or not",
+            dataProviderClass = QaForStudySpacePageDataProvider.class,
+            dataProvider = "tittleOfVideoBlockDataProvider"
+    )
+    public void videoFrameTittleTest(String expectedResult) {
+        String actualResult = qaForStudySpacePage.getTittleOfVideoBlock();
+
+        Assert.assertEquals(actualResult, expectedResult, "Title doesn’t equals to the expected result");
+    }
+
+    @Test(testName = "socialNetworkUrlTest",
+            description = "Check that social link url is correct",
+            dataProviderClass = QaForStudySpacePageDataProvider.class,
+            dataProvider = "socialNetworkNamesAndUrls"
+    )
+    public void socialNetworkUrlTest(String networkName, String expectedUrl) {
+        String actualUrl = qaForStudySpacePage.clickOnSocialNetworkLink(networkName);
+
+        Assert.assertTrue(actualUrl.contains(expectedUrl), "Incorrect url of Social network");
+    }
+
+    @Test(testName = "socialIconsInFooterTest",
+            description = "Check that there is all social links in footer"
+    )
+    public void socialIconsInFooterTest() {
+        Assert.assertTrue(qaForStudySpacePage.checkSocialLinksFromFooter(),
+                "Social network block doesn’t contain 5 items");
+    }
 }
