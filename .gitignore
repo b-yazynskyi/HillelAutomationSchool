@@ -6,6 +6,7 @@ target/
 /allure-report/
 /build/reports/
 /logs/
+/build/downloads/
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
