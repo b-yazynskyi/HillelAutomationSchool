@@ -21,7 +21,7 @@ public class PanelPage {
     }
 
     @Step("Open PanelPage")
-    public PanelPage openPage() {
+    public static PanelPage openPage() {
         log.info("Opening PanelPage");
         open("/panel");
 
