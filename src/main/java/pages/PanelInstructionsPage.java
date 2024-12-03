@@ -5,10 +5,13 @@ import io.qameta.allure.Step;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 
 import static com.codeborne.selenide.Selenide.*;
+import static utils.Util.*;
 
 @Slf4j
 public class PanelInstructionsPage extends PanelPage {
@@ -24,10 +27,33 @@ public class PanelInstructionsPage extends PanelPage {
             = $$x("//p[@class='instruction-link_description']");
 
 
+    @Step("Creating file with car names")
+    public String createFileWithCarBrandNames() {
+        log.info("Creating .txt file with car brand names");
+        File fileWithCarBrandNames = createTxtFile();
+
+        List<String> carBrandNames = new ArrayList<>();
+
+        for (SelenideElement element : DROPDOWN_BRAND_VALUES) {
+            carBrandNames.add(element.getText());
+        }
+
+        writeDataToFile(carBrandNames, fileWithCarBrandNames);
+
+        return readDataFromFile(fileWithCarBrandNames);
+    }
+
+    @Step("Click on selectBrandOfCar")
+    public PanelInstructionsPage clickOnSelectBrandOfCar() {
+        log.info("Clicking on brand select button");
+        BRAND_SELECT_BUTTON.shouldBe(Condition.clickable).click();
+
+        return this;
+    }
+
     @Step("Select brand of car in dropdown")
     public PanelInstructionsPage selectBrandOfCarInDropDownByName(String brandName) {
         log.info("Selecting brand of car in dropdown with name: {}", brandName);
-        BRAND_SELECT_BUTTON.shouldBe(Condition.clickable).click();
         for (SelenideElement element : DROPDOWN_BRAND_VALUES) {
             if (element.getText().equals(brandName)
                     && !Objects.requireNonNull(element.getAttribute("class")).contains("disabled")) {
