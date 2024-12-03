@@ -12,5 +12,10 @@ public class PanelInstructionsPageDataProvider {
                 {"Engine oil and filter on", "Fiat", "Palio"},
                 {"Front strut mount on", "Ford", "Fiesta"}
         };
-    };
+    }
+
+    @DataProvider
+    public Object[] dateForCarBrandNames() {
+        return new Object[] {"[Audi, BMW, Ford, Porsche, Fiat]"};
+    }
 }
