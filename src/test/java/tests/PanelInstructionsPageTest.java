@@ -2,7 +2,7 @@ package tests;
 
 import com.codeborne.selenide.Selenide;
 import dataProviders.PanelInstructionsPageDataProvider;
-import io.qameta.allure.Feature;
+import io.qameta.allure.*;
 import listeners.TestRunListener;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -36,6 +36,10 @@ public class PanelInstructionsPageTest {
         panelInstructionsPage = null;
     }
 
+    @Description("Test where downloading instruction and then validate name of that file")
+    @Owner("Bohdan")
+    @Link("https://lms.ithillel.ua/groups/667a91d512578b9e5119055f/homeworks/6745a1e991d73f851faf9590")
+    @Severity(SeverityLevel.NORMAL)
     @Test(testName = "downloadInstructionsTest",
             description = "Downloading instructions of front windshield",
             dataProviderClass = PanelInstructionsPageDataProvider.class,
@@ -59,6 +63,10 @@ public class PanelInstructionsPageTest {
         Assert.assertEquals(actualFileName, expectedResult);
     }
 
+    @Description("Test where writing all car brand names from dropdown to txt file")
+    @Owner("Bohdan")
+    @Link("https://lms.ithillel.ua/groups/667a91d512578b9e5119055f/homeworks/6745a1e991d73f851faf9590")
+    @Severity(SeverityLevel.NORMAL)
     @Test(testName = "writeAllCarBrandNamesTest",
             description = "This test writing to file all car brand names" +
                     "and then verify that they matched with expected result",
