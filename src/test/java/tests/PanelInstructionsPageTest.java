@@ -1,6 +1,7 @@
 package tests;
 
 import com.codeborne.selenide.Selenide;
+import dataProviders.PanelInstructionsPageDataProvider;
 import listeners.TestRunListener;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -10,6 +11,7 @@ import org.testng.annotations.Test;
 import pages.PanelInstructionsPage;
 import pages.PanelPage;
 import pages.QaForStudySpacePage;
+import utils.InstructionNameHelper;
 
 @Listeners(TestRunListener.class)
 public class PanelInstructionsPageTest {
@@ -33,15 +35,24 @@ public class PanelInstructionsPageTest {
     }
 
     @Test(testName = "downloadInstructionsTest",
-            description = "Downloading instructions of front windshield"
+            description = "Downloading instructions of front windshield",
+            dataProviderClass = PanelInstructionsPageDataProvider.class,
+            dataProvider = "dateForLookForInstructionsForCars"
+
     )
-    public void downloadInstructionsTest() {
+    public void downloadInstructionsTest(String instructionName, String brandName, String modelName) {
+        String expectedResult = InstructionNameHelper.createInstructionName(instructionName, brandName, modelName);
+
         qaForStudySpacePage
                 .clickGuestLogInButton();
+
         String actualFileName = panelPage
                 .clickOnInstructionsButton()
-                .clickDownloadFrontWindshield();
+                .selectBrandOfCarInDropDownByName(brandName)
+                .selectModelOfCarInDropDownByName(modelName)
+                .clickSearchButton()
+                .downloadInstructionByItsName(instructionName);
 
-        Assert.assertEquals(actualFileName, "Front_20windshield_20wipers_20on_20Audi_20TT.pdf");
+        Assert.assertEquals(actualFileName, expectedResult);
     }
 }
