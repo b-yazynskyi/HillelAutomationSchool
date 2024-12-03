@@ -2,7 +2,7 @@ package tests;
 
 import com.codeborne.selenide.Selenide;
 import dataProviders.PanelGaragePageDataProvider;
-import io.qameta.allure.Feature;
+import io.qameta.allure.*;
 import listeners.TestRunListener;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
@@ -30,6 +30,10 @@ public class PanelGaragePageTest {
         panelGaragePage = null;
     }
 
+    @Description("Test where adding car to garage and then assert that car name, logo etc.")
+    @Owner("Bohdan")
+    @Link("https://lms.ithillel.ua/groups/667a91d512578b9e5119055f/homeworks/6745a1e991d73f851faf9590")
+    @Severity(SeverityLevel.NORMAL)
     @Test(testName = "addCarAsGuestUserTest",
             description = "Testing flow from log in as guest to adding new car",
             dataProviderClass = PanelGaragePageDataProvider.class,
