@@ -2,6 +2,7 @@ package tests;
 
 import com.codeborne.selenide.Selenide;
 import dataProviders.PanelInstructionsPageDataProvider;
+import io.qameta.allure.Feature;
 import listeners.TestRunListener;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -13,6 +14,7 @@ import pages.PanelPage;
 import pages.QaForStudySpacePage;
 import utils.InstructionNameHelper;
 
+@Feature("Tests for PanelInstructionsPage")
 @Listeners(TestRunListener.class)
 public class PanelInstructionsPageTest {
     private QaForStudySpacePage qaForStudySpacePage;
