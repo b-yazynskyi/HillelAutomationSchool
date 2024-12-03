@@ -48,11 +48,29 @@ public class PanelInstructionsPageTest {
 
         String actualFileName = panelPage
                 .clickOnInstructionsButton()
+                .clickOnSelectBrandOfCar()
                 .selectBrandOfCarInDropDownByName(brandName)
                 .selectModelOfCarInDropDownByName(modelName)
                 .clickSearchButton()
                 .downloadInstructionByItsName(instructionName);
 
         Assert.assertEquals(actualFileName, expectedResult);
+    }
+
+    @Test(testName = "writeAllCarBrandNamesTest",
+            description = "This test writing to file all car brand names" +
+                    "and then verify that they matched with expected result",
+            dataProviderClass = PanelInstructionsPageDataProvider.class,
+            dataProvider = "dateForCarBrandNames"
+    )
+    public void writeAllCarBrandNamesTest(String expectedResult) {
+        qaForStudySpacePage.clickGuestLogInButton();
+
+        String actualResult = panelPage
+                .clickOnInstructionsButton()
+                .clickOnSelectBrandOfCar()
+                .createFileWithCarBrandNames();
+
+        Assert.assertEquals(actualResult, expectedResult);
     }
 }
