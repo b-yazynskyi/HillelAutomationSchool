@@ -1,7 +1,7 @@
 package tests;
 
 import dataProviders.QaForStudySpacePageDataProvider;
-import io.qameta.allure.Feature;
+import io.qameta.allure.*;
 import listeners.TestRunListener;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -30,6 +30,10 @@ public class QaForStudySpacePageTest {
         Assert.assertTrue(qaForStudySpacePage.checkIsLogoDisplayed(), "Logo does not displayed");
     }
 
+    @Description("Test sign up background color")
+    @Owner("Bohdan")
+    @Link("https://lms.ithillel.ua/groups/667a91d512578b9e5119055f/homeworks/6745a1e991d73f851faf9590")
+    @Severity(SeverityLevel.NORMAL)
     @Test(testName = "SignUpButtonBackgroundColor",
             description = "Check either background color of SignUp button proper or not",
             dataProviderClass = QaForStudySpacePageDataProvider.class,
@@ -42,6 +46,10 @@ public class QaForStudySpacePageTest {
                 "Background color of Sign up button is incorrect");
     }
 
+    @Description("Test tittle of video in frame")
+    @Owner("Bohdan")
+    @Link("https://lms.ithillel.ua/groups/667a91d512578b9e5119055f/homeworks/6745a1e991d73f851faf9590")
+    @Severity(SeverityLevel.NORMAL)
     @Test(testName = "videoFrameTittleTest",
             description = "Check either tittle of video block correct or not",
             dataProviderClass = QaForStudySpacePageDataProvider.class,
@@ -53,6 +61,10 @@ public class QaForStudySpacePageTest {
         Assert.assertEquals(actualResult, expectedResult, "Title doesn’t equals to the expected result");
     }
 
+    @Description("Test social network links by clicking and verifying url.")
+    @Owner("Bohdan")
+    @Link("https://lms.ithillel.ua/groups/667a91d512578b9e5119055f/homeworks/6745a1e991d73f851faf9590")
+    @Severity(SeverityLevel.NORMAL)
     @Test(testName = "socialNetworkUrlTest",
             description = "Check that social link url is correct",
             dataProviderClass = QaForStudySpacePageDataProvider.class,
@@ -64,6 +76,10 @@ public class QaForStudySpacePageTest {
         Assert.assertTrue(actualUrl.contains(expectedUrl), "Incorrect url of Social network");
     }
 
+    @Description("Test where test social networks icons in footer")
+    @Owner("Bohdan")
+    @Link("https://lms.ithillel.ua/groups/667a91d512578b9e5119055f/homeworks/6745a1e991d73f851faf9590")
+    @Severity(SeverityLevel.NORMAL)
     @Test(testName = "socialIconsInFooterTest",
             description = "Check that there is all social links in footer"
     )
