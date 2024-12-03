@@ -2,7 +2,7 @@
 
 <suite name="TestAll">
 
-    <test name="order">
+    <test name="allTests">
         <classes>
             <class name="tests.PanelGaragePageTest" />
             <class name="tests.PanelInstructionsPageTest" />
