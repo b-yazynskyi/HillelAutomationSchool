@@ -56,7 +56,7 @@ public class PanelGaragePageTest {
         softAssert.assertEquals(panelGaragePage.getInfoFromMileageInput(),
                 Integer.valueOf(millageNumber));
         softAssert.assertTrue(panelGaragePage.checkLogoVisibility());
-        softAssert.assertEquals(panelGaragePage.getUrlOfLogoEnds(), imageUrlName);
+        softAssert.assertEquals(panelGaragePage.getUrlOfLogoEnds(), imageUrlName, "Url name isn't correct");
         softAssert.assertAll();
     }
 
