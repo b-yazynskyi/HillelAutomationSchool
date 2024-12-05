@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 import static com.codeborne.selenide.Selenide.*;
 import static utils.Util.*;
@@ -30,13 +31,12 @@ public class PanelInstructionsPage extends PanelPage {
     @Step("Creating file with car names")
     public String createFileWithCarBrandNames() {
         log.info("Creating .txt file with car brand names");
-        File fileWithCarBrandNames = createTxtFile();
+        File fileWithCarBrandNames = createFile();
 
-        List<String> carBrandNames = new ArrayList<>();
-
-        for (SelenideElement element : DROPDOWN_BRAND_VALUES) {
-            carBrandNames.add(element.getText());
-        }
+        List<String> carBrandNames = DROPDOWN_BRAND_VALUES
+                .stream()
+                .map(SelenideElement::getText)
+                .collect(Collectors.toList());
 
         writeDataToFile(carBrandNames, fileWithCarBrandNames);
 
