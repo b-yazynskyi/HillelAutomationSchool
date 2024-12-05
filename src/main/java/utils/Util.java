@@ -17,12 +17,11 @@ public final class Util {
 
     private Util(){}
 
-    public static File createTxtFile() {
-        String ext = "txt";
+    public static File createFile(String fileExtension, int randomStringLength, String directoryPath) {
         String randomFileName = String.format("%s.%s", RandomStringUtils
-                .random(10, 0, 0, true, true, null
-                        , Random.from(RandomGenerator.getDefault())), ext);
-        File dir = new File("/Users/bohdanyazynskyi/IdeaProjects/HillelAutomationQASchool/build/files");
+                .random(randomStringLength, 0, 0, true, true, null
+                        , Random.from(RandomGenerator.getDefault())), fileExtension);
+        File dir = new File(directoryPath);
         return new File(dir, randomFileName);
     }
 
