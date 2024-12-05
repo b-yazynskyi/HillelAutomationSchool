@@ -13,7 +13,9 @@ import java.util.Random;
 import java.util.random.RandomGenerator;
 
 @Slf4j
-public class Util {
+public final class Util {
+
+    private Util(){}
 
     public static File createTxtFile() {
         String ext = "txt";
