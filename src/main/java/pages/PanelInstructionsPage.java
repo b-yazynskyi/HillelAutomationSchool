@@ -31,7 +31,9 @@ public class PanelInstructionsPage extends PanelPage {
     @Step("Creating file with car names")
     public String createFileWithCarBrandNames() {
         log.info("Creating .txt file with car brand names");
-        File fileWithCarBrandNames = createFile();
+        File fileWithCarBrandNames = createFile("txt", 10);
+
+        log.info("File created: {}", fileWithCarBrandNames.getName());
 
         List<String> carBrandNames = DROPDOWN_BRAND_VALUES
                 .stream()
@@ -39,6 +41,7 @@ public class PanelInstructionsPage extends PanelPage {
                 .collect(Collectors.toList());
 
         writeDataToFile(carBrandNames, fileWithCarBrandNames);
+        log.info("Car brand names: {}", carBrandNames);
 
         return readDataFromFile(fileWithCarBrandNames);
     }
