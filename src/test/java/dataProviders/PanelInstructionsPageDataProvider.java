@@ -2,6 +2,8 @@ package dataProviders;
 
 import org.testng.annotations.DataProvider;
 
+import java.util.Arrays;
+
 
 public class PanelInstructionsPageDataProvider {
     @DataProvider
@@ -16,6 +18,6 @@ public class PanelInstructionsPageDataProvider {
 
     @DataProvider
     public Object[] dateForCarBrandNames() {
-        return new Object[] {"[Audi, BMW, Ford, Porsche, Fiat]"};
+        return new Object[] {Arrays.asList("Audi", "BMW", "Ford", "Porsche", "Fiat")};
     }
 }
