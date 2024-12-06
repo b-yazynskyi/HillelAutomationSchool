@@ -14,6 +14,8 @@ import pages.PanelPage;
 import pages.QaForStudySpacePage;
 import utils.InstructionNameHelper;
 
+import java.util.List;
+
 @Feature("Tests for PanelInstructionsPage")
 @Listeners(TestRunListener.class)
 public class PanelInstructionsPageTest {
@@ -73,7 +75,7 @@ public class PanelInstructionsPageTest {
             dataProviderClass = PanelInstructionsPageDataProvider.class,
             dataProvider = "dateForCarBrandNames"
     )
-    public void writeAllCarBrandNamesTest(String expectedResult) {
+    public void writeAllCarBrandNamesTest(List<String> expectedResult) {
         qaForStudySpacePage.clickGuestLogInButton();
 
         String actualResult = panelPage
@@ -81,6 +83,8 @@ public class PanelInstructionsPageTest {
                 .clickOnSelectBrandOfCar()
                 .createFileWithCarBrandNames();
 
-        Assert.assertEquals(actualResult, expectedResult);
+        String expectedData = String.join(System.lineSeparator(), expectedResult);
+
+        Assert.assertEquals(actualResult, expectedData);
     }
 }
