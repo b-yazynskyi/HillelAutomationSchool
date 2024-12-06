@@ -27,9 +27,12 @@ public final class Util {
 
     public static void writeDataToFile(List<String> textForFile, File file) {
         try (FileWriter myWriter = new FileWriter(file)) {
-            myWriter.write(String.valueOf(textForFile));
+            for (String line : textForFile) {
+                myWriter.write(line + System.lineSeparator());
+            }
         } catch (IOException e) {
             log.error(e.getMessage());
+            throw new RuntimeException("Error writing data to file", e);
         }
     }
 
@@ -38,9 +41,10 @@ public final class Util {
         try {
             Path filePath = file.toPath();
             List<String> linesFromFile = Files.readAllLines(filePath);
-            dataFromFile = String.join("\n", linesFromFile);
+            dataFromFile = String.join(System.lineSeparator(), linesFromFile).trim();
         } catch (IOException e) {
             log.error(e.getMessage());
+            throw new RuntimeException("Error reading data from file", e);
         }
 
         log.info("Data from file: {}", dataFromFile);
