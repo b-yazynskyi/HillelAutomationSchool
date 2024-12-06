@@ -3,11 +3,21 @@
 <suite name="TestAll">
 
     <test name="allTests">
-        <classes>
-            <class name="tests.PanelGaragePageTest" />
-            <class name="tests.PanelInstructionsPageTest" />
-            <class name="tests.QaForStudySpacePageTest" />
-        </classes>
+        <packages>
+            <package name="tests.panel_page_tests"/>
+            <package name="tests.qa_for_study_space_page_tests"/>
+        </packages>
+    </test>
+
+    <test name="PanelPageTest">
+        <packages>
+            <package name="tests.panel_page_tests"/>
+        </packages>
+    </test>
+    <test name="QaForStudySpacePageTest">
+        <packages>
+            <package name="tests.qa_for_study_space_page_tests"/>
+        </packages>
     </test>
 
 </suite>
