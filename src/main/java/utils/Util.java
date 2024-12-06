@@ -17,11 +17,11 @@ public final class Util {
 
     private Util(){}
 
-    public static File createFile(String fileExtension, int randomStringLength, String directoryPath) {
+    public static File createFile(String fileExtension, int randomStringLength) {
         String randomFileName = String.format("%s.%s", RandomStringUtils
                 .random(randomStringLength, 0, 0, true, true, null
                         , Random.from(RandomGenerator.getDefault())), fileExtension);
-        File dir = new File(directoryPath);
+        File dir = new File("/tmp/testData");
         return new File(dir, randomFileName);
     }
 
@@ -43,6 +43,7 @@ public final class Util {
             log.error(e.getMessage());
         }
 
+        log.info("Data from file: {}", dataFromFile);
         return dataFromFile;
     }
 }
