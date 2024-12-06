@@ -1,4 +1,4 @@
-package tests;
+package tests.qa_for_study_space_page_tests;
 
 import dataProviders.QaForStudySpacePageDataProvider;
 import io.qameta.allure.*;

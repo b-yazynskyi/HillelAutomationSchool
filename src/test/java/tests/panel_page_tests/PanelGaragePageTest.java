@@ -1,4 +1,4 @@
-package tests;
+package tests.panel_page_tests;
 
 import com.codeborne.selenide.Selenide;
 import dataProviders.PanelGaragePageDataProvider;
