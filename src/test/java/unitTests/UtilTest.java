@@ -31,7 +31,7 @@ public class UtilTest {
         Assert.assertEquals(createdFile.getName().split("\\.")[0].length(), randomStringLength, "File name length is incorrect");
     }
 
-    @Test
+    @Test(groups = "unit-tests")
     public void testWriteAndReadDataToFile() throws IOException {
         File tempFile = File.createTempFile("testFile", ".txt");
         List<String> dataToWrite = Arrays.asList("Line 1", "Line 2", "Line 3");
@@ -46,7 +46,7 @@ public class UtilTest {
         tempFile.delete();
     }
 
-    @Test
+    @Test(groups = "unit-tests")
     public void testReadDataFromNonExistentFile() {
         File nonExistentFile = new File("/tmp/nonExistentFile.txt");
 
