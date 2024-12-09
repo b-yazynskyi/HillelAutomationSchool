@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.open;
 
 @Slf4j
-public class PanelPage {
+public class PanelPage extends BasePage {
     private final SelenideElement INSTRUCTIONS_BUTTON = $x("//a[@routerLink='instructions']");
 
     @Step("Click on Instructions button")

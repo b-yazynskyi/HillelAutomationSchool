@@ -5,7 +5,6 @@ import io.qameta.allure.Step;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Objects;
@@ -22,7 +21,7 @@ public class PanelInstructionsPage extends PanelPage {
     private final SelenideElement SEARCH_BUTTON
             = $x("//button[@class='instructions-search-controls_search btn btn-primary']");
     private final SelenideElement MODEL_SELECT_BUTTON = $x("//button[@id='modelSelectDropdown']");
-    private final ElementsCollection DROPDOWN_SELECT_VALUES
+    private final ElementsCollection DROPDOWN_MODEL_VALUES
             = $$x("//li[contains(@class,'dropdown-item btn btn-link model-select-dropdown_item')]");
     private final ElementsCollection INSTRUCTIONS_BY_DESCRIPTION
             = $$x("//p[@class='instruction-link_description']");
@@ -57,13 +56,7 @@ public class PanelInstructionsPage extends PanelPage {
     @Step("Select brand of car in dropdown")
     public PanelInstructionsPage selectBrandOfCarInDropDownByName(String brandName) {
         log.info("Selecting brand of car in dropdown with name: {}", brandName);
-        for (SelenideElement element : DROPDOWN_BRAND_VALUES) {
-            if (element.getText().equals(brandName)
-                    && !Objects.requireNonNull(element.getAttribute("class")).contains("disabled")) {
-                log.info("Clicking on brand: {}", element.getText());
-                element.click();
-            }
-        }
+        selectByElementTypeInDropDown(DROPDOWN_BRAND_VALUES, brandName);
 
         return this;
     }
@@ -72,13 +65,7 @@ public class PanelInstructionsPage extends PanelPage {
     public PanelInstructionsPage selectModelOfCarInDropDownByName(String modelName) {
         log.info("Selecting model of car in dropdown with name: {}", modelName);
         MODEL_SELECT_BUTTON.shouldBe(Condition.clickable).click();
-        for (SelenideElement element : DROPDOWN_SELECT_VALUES) {
-            if (element.getText().equals(modelName)
-                    && !Objects.requireNonNull(element.getAttribute("class")).contains("disabled")) {
-                log.info("Clicking on model: {}", element.getText());
-                element.click();
-            }
-        }
+        selectByElementTypeInDropDown(DROPDOWN_MODEL_VALUES, modelName);
 
         return this;
     }
