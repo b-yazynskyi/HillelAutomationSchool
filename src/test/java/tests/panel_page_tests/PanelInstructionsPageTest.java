@@ -73,7 +73,8 @@ public class PanelInstructionsPageTest {
             description = "This test writing to file all car brand names" +
                     "and then verify that they matched with expected result",
             dataProviderClass = PanelInstructionsPageDataProvider.class,
-            dataProvider = "dateForCarBrandNames"
+            dataProvider = "dateForCarBrandNames",
+            dependsOnGroups = {"unit-tests"}
     )
     public void writeAllCarBrandNamesTest(List<String> expectedResult) {
         qaForStudySpacePage.clickGuestLogInButton();
