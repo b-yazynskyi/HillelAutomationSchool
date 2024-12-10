@@ -17,6 +17,11 @@ public class TestRunListener implements ITestListener {
     }
 
     @Override
+    public void onTestSkipped(ITestResult result) {
+        log.info("Test skipped: {}", result.getName());
+    }
+
+    @Override
     public void onTestFailure(ITestResult result) {
         log.info("Test failed: {}", result.getName());
     }
