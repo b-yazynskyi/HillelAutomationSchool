@@ -20,7 +20,7 @@ public class InstructionNameHelperTest {
         };
     }
 
-    @Test(dataProvider = "instructionNameData", groups = "unit-tests")
+    @Test(dataProvider = "instructionNameData", groups = {"unit-tests"})
     public void testCreateInstructionName(String instructionDescription, String brandName, String modelName,
                                           String expectedResult) {
         String actualResult = createInstructionName(instructionDescription, brandName, modelName);

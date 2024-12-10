@@ -45,8 +45,8 @@ public class PanelInstructionsPageTest {
     @Test(testName = "downloadInstructionsTest",
             description = "Downloading instructions of front windshield",
             dataProviderClass = PanelInstructionsPageDataProvider.class,
-            dataProvider = "dateForLookForInstructionsForCars"
-
+            dataProvider = "dateForLookForInstructionsForCars",
+            dependsOnGroups = {"unit-tests"}
     )
     public void downloadInstructionsTest(String instructionName, String brandName, String modelName) {
         String expectedResult = InstructionNameHelper.createInstructionName(instructionName, brandName, modelName);
