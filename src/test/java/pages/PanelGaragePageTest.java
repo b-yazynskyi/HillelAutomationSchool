@@ -1,4 +1,4 @@
-package tests;
+package pages;
 
 import com.codeborne.selenide.Selenide;
 import dataProviders.PanelGaragePageDataProvider;
@@ -6,8 +6,6 @@ import io.qameta.allure.Feature;
 import listeners.TestRunListener;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
-import pages.PanelGaragePage;
-import pages.QaForStudySpacePage;
 
 import java.time.LocalDate;
 

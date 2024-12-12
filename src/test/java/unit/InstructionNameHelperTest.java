@@ -1,4 +1,4 @@
-package unitTests;
+package unit;
 
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
