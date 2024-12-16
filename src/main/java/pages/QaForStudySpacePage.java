@@ -15,16 +15,56 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 @Slf4j
 public class QaForStudySpacePage {
-    private final SelenideElement LOGO_PAGE = $x("//*[@class='header_left d-flex align-items-center']");
-    private final SelenideElement SIGN_UP_BUTTON
-            = $x("//*[@class='hero-descriptor_btn btn btn-primary']");
-    private final SelenideElement IFRAME_BLOCK = $x("//*[@class='hero-video_frame']");
-    private final SelenideElement VIDEO_BLOCK_TITTLE
-            = $x("//*[@class='ytp-title-link yt-uix-sessionlink']");
+    private final SelenideElement LOGO_PAGE = $x("//*[@class='header_left d-flex align-items-center']"),
+            SIGN_UP_BUTTON = $x("//*[@class='hero-descriptor_btn btn btn-primary']"),
+            IFRAME_BLOCK = $x("//*[@class='hero-video_frame']"),
+            VIDEO_BLOCK_TITTLE = $x("//*[@class='ytp-title-link yt-uix-sessionlink']"),
+            SOCIAL_LINKS_BLOCK_IN_FOOTER = $x("//div[@class='contacts_socials socials']"),
+            GUEST_LOG_IN_BUTTON = $x("//*[@class='header-link -guest']"),
+            SIGN_IN_BUTTON = $x("//button[@class='btn btn-outline-white header_signin']"),
+            MODAL_EMAIL_INPUT = $x("//input[@id='signinEmail']"),
+            MODAL_PASSWORD_INPUT = $x("//input[@id='signinPassword']"),
+            MODAL_LOGIN_BUTTON = $x("//button[@class='btn btn-primary']"),
+            ERROR_MESSAGE_ON_MODAL = $x("//p[@class='alert alert-danger']");
     private final ElementsCollection SOCIAL_LINKS_IN_FOOTER = $$x("//*[@class='socials_link']");
-    private final SelenideElement SOCIAL_LINKS_BLOCK_IN_FOOTER
-            = $x("//div[@class='contacts_socials socials']");
-    private final SelenideElement GUEST_LOG_IN_BUTTON = $x("//*[@class='header-link -guest']");
+
+    @Step("Click Sign in button")
+    public QaForStudySpacePage clickSignInButton() {
+        log.info("Click on Sign in button");
+        SIGN_IN_BUTTON.shouldBe(Condition.clickable).click();
+
+        return this;
+    }
+
+    @Step("Enter data to email input on modal window")
+    public QaForStudySpacePage enterDataToEmailInput(String dataForEnter) {
+        log.info("Enter data: {} || to email input", dataForEnter);
+        MODAL_EMAIL_INPUT.shouldBe(Condition.visible).setValue(dataForEnter);
+
+        return this;
+    }
+
+    @Step("Enter data to password input on modal window")
+    public QaForStudySpacePage enterDataToPasswordInput(String dataForEnter) {
+        log.info("Enter data: {} || to password input", dataForEnter);
+        MODAL_PASSWORD_INPUT.shouldBe(Condition.visible).setValue(dataForEnter);
+
+        return this;
+    }
+
+    @Step("Click login button on modal window")
+    public QaForStudySpacePage clickLoginButtonOnModal() {
+        log.info("Click login button on modal window");
+        MODAL_LOGIN_BUTTON.shouldBe(Condition.clickable).click();
+
+        return this;
+    }
+
+    @Step("Get text of error message on modal window")
+    public String getErrorMessageOnModal() {
+        log.info("Get text of error message on modal window");
+        return ERROR_MESSAGE_ON_MODAL.shouldBe(Condition.visible).getText();
+    }
 
     @Step("Check is logo displayed")
     public boolean checkIsLogoDisplayed() {
