@@ -21,6 +21,14 @@ public class QaForStudySpacePageDataProvider {
     }
 
     @DataProvider
+    public Object[][] emailAndPasswordsForSignIn() {
+        return new Object[][] {
+                {"test@hillel.ua", "1111"},
+                {"test@hillel.ua", "1234"}
+        };
+    }
+
+    @DataProvider
     public Object[][] socialNetworkNamesAndUrls() {
         Map<String, String> expectedLinks = Map.of(
                 "facebook", "https://www.facebook.com/Hillel.IT.School",
