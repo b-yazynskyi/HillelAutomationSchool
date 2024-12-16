@@ -1,4 +1,4 @@
-package tests.panel_page_tests;
+package pages.panel_page_tests;
 
 import com.codeborne.selenide.Selenide;
 import dataProviders.PanelInstructionsPageDataProvider;

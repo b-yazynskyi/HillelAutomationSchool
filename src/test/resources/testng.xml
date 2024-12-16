@@ -4,19 +4,19 @@
 
     <test name="allTests">
         <packages>
-            <package name="tests.panel_page_tests"/>
-            <package name="tests.qa_for_study_space_page_tests"/>
+            <package name="pages.panel_page_tests"/>
+            <package name="pages.qa_for_study_space_page_tests"/>
         </packages>
     </test>
 
     <test name="PanelPageTest">
         <packages>
-            <package name="tests.panel_page_tests"/>
+            <package name="pages.panel_page_tests"/>
         </packages>
     </test>
     <test name="QaForStudySpacePageTest">
         <packages>
-            <package name="tests.qa_for_study_space_page_tests"/>
+            <package name="pages.qa_for_study_space_page_tests"/>
         </packages>
     </test>
 
