@@ -1,5 +1,6 @@
 package pages.qa_for_study_space_page_tests;
 
+import com.codeborne.selenide.Selenide;
 import dataProviders.QaForStudySpacePageDataProvider;
 import io.qameta.allure.*;
 import listeners.TestRunListener;
@@ -22,6 +23,7 @@ public class QaForStudySpacePageTest {
 
     @AfterMethod
     public void tearDown() {
+        Selenide.closeWebDriver();
         qaForStudySpacePage = null;
     }
 
@@ -86,5 +88,27 @@ public class QaForStudySpacePageTest {
     public void socialIconsInFooterTest() {
         Assert.assertTrue(qaForStudySpacePage.checkSocialLinksFromFooter(),
                 "Social network block doesn’t contain 5 items");
+    }
+
+    @Description("Test where enter wrong email and password in sign in modal then check error message")
+    @Owner("Bohdan")
+    @Link("https://lms.ithillel.ua/groups/667a91d512578b9e5119055f/homeworks/6756c69b15846cebde08c45f")
+    @Severity(SeverityLevel.NORMAL)
+    @Test(testName = "errorMessageOnModalTest",
+            dataProviderClass = QaForStudySpacePageDataProvider.class,
+            dataProvider = "emailAndPasswordsForSignIn",
+            description = "Test where enter wrong email and password in sign in modal then check error message"
+    )
+    public void errorMessageOnModalTest(String email, String password) {
+        String expectedResult = "Wrong email or password";
+
+        String actualResult = qaForStudySpacePage.clickSignInButton()
+                .enterDataToEmailInput(email)
+                .enterDataToPasswordInput(password)
+                .clickLoginButtonOnModal()
+                .getErrorMessageOnModal();
+
+        Assert.assertEquals(actualResult, expectedResult,
+                "Error message text doesn't match with expected result");
     }
 }
