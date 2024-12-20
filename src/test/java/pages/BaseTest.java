@@ -8,6 +8,7 @@ import com.codeborne.selenide.WebDriverRunner;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.net.NetworkUtils;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.BeforeMethod;
 
 import java.util.Objects;
 import java.util.Random;
@@ -17,6 +18,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public abstract class BaseTest {
 
+    @BeforeMethod
     public void initBrowser() {
         configBrowser();
         configProxy();
