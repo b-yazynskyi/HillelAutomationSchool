@@ -11,7 +11,7 @@ import java.time.LocalDate;
 
 @Listeners({TestRunListener.class})
 @Feature("Test for Panel Garage page")
-public class PanelGaragePageTest {
+public class PanelGaragePageTest extends BaseTest {
     private QaForStudySpacePage qaForStudySpacePage;
     private PanelGaragePage panelGaragePage;
 

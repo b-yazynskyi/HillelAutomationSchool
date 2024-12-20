@@ -9,11 +9,12 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import pages.BaseTest;
 import pages.QaForStudySpacePage;
 
 @Listeners({TestRunListener.class})
 @Feature("Tests for QaForStudySpace page")
-public class QaForStudySpacePageTest {
+public class QaForStudySpacePageTest extends BaseTest {
     private QaForStudySpacePage qaForStudySpacePage;
 
     @BeforeMethod
