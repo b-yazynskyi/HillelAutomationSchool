@@ -10,6 +10,7 @@ import org.openqa.selenium.net.NetworkUtils;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.BeforeMethod;
 
+import java.util.HashMap;
 import java.util.Objects;
 import java.util.Random;
 import java.util.random.RandomGenerator;
@@ -23,14 +24,13 @@ public abstract class BaseTest {
         configBrowser();
         configProxy();
         clearBrowser();
-        open("https://guest:welcome2qauto@qauto.forstudy.space");
     }
 
     private void configBrowser() {
         Configuration.proxyEnabled = true;
         Configuration.proxyHost = new NetworkUtils().getNonLoopbackAddressOfThisMachine();
         Configuration.fileDownload = FileDownloadMode.PROXY;
-        Configuration.remote = "http://selenoid:4444";
+        Configuration.remote = "http://localhost:4444/wd/hub";
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080";
         Configuration.screenshots = true;
@@ -44,12 +44,19 @@ public abstract class BaseTest {
 
     private void configCapabilities() {
         var capabilities = new DesiredCapabilities();
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", false);
-        capabilities.setCapability("videoName", "testVideo"
+
+        capabilities.setCapability("browserName", "chrome");
+        capabilities.setCapability("acceptInsecureCerts", true);
+
+        var selenoidOptions = new HashMap<String, Object>();
+        selenoidOptions.put("enableVNC", true);
+        selenoidOptions.put("enableVideo", false);
+        selenoidOptions.put("videoName", "testVideo"
                 + RandomStringUtils.random(3, 0, 0, true, true, null
                 , Random.from(RandomGenerator.getDefault())) + ".mp4");
-        capabilities.setCapability("timeZone", "Europe/Kyiv");
+        selenoidOptions.put("timeZone", "Europe/Kyiv");
+
+        capabilities.setCapability("selenoid:options", selenoidOptions);
         Configuration.browserCapabilities = capabilities;
     }
 
