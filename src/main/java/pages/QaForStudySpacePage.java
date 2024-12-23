@@ -137,7 +137,7 @@ public class QaForStudySpacePage {
     @Step("Open page")
     public static QaForStudySpacePage openPage() {
         log.info("Opening QaForStudySpacePage");
-        open("");
+        open("https://guest:welcome2qauto@qauto.forstudy.space/");
 
         return new QaForStudySpacePage();
     }
