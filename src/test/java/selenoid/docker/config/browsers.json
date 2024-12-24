@@ -1,6 +1,6 @@
 {
   "chrome": {
-    "default": "chrome",
+    "default": "112.0",
     "versions": {
       "112.0": {
         "image": "gromanas/selenoid_chromium_vnc:112.0",
