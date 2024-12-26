@@ -19,8 +19,7 @@ public final class Util {
 
     public static File createFile(String fileExtension, int randomStringLength) {
         String randomFileName = String.format("%s.%s", RandomStringUtils
-                .random(randomStringLength, 0, 0, true, true, null
-                        , Random.from(RandomGenerator.getDefault())), fileExtension);
+                .random(randomStringLength, 0, 0, true, true, null), fileExtension);
         File dir = new File("/tmp/testData");
         return new File(dir, randomFileName);
     }

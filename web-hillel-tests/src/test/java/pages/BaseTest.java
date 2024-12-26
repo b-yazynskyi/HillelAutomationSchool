@@ -61,8 +61,7 @@ public abstract class BaseTest {
         selenoidOptions.put("enableVNC", AppConfigUtils.CONFIG.isVnc());
         selenoidOptions.put("enableVideo", AppConfigUtils.CONFIG.isEnableVideo());
         selenoidOptions.put("videoName", "testVideo"
-                + RandomStringUtils.random(3, 0, 0, true, true, null
-                , Random.from(RandomGenerator.getDefault())) + ".mp4");
+                + RandomStringUtils.random(3, 0, 0, true, true, null) + ".mp4");
         selenoidOptions.put("timeZone", "Europe/Kyiv");
 
         capabilities.setCapability("selenoid:options", selenoidOptions);
