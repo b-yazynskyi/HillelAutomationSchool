@@ -7,8 +7,10 @@ import lombok.experimental.Accessors;
 
 @NoArgsConstructor
 public class ProjectUtils {
-    public static String project() {
-        return System.getProperty("project") == null ? Environment.FRONT.get() : System.getProperty("project");
+    public static String project;
+
+    static {
+        project = System.getProperty("project") == null ? Environment.FRONT.get() : System.getProperty("project");
     }
 
     @RequiredArgsConstructor
