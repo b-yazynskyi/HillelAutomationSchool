@@ -9,6 +9,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+
+import pages.BaseTest;
 import pages.PanelInstructionsPage;
 import pages.PanelPage;
 import pages.QaForStudySpacePage;
@@ -18,7 +20,7 @@ import java.util.List;
 
 @Feature("Tests for PanelInstructionsPage")
 @Listeners(TestRunListener.class)
-public class PanelInstructionsPageTest {
+public class PanelInstructionsPageTest extends BaseTest {
     private QaForStudySpacePage qaForStudySpacePage;
     private PanelPage panelPage;
     private PanelInstructionsPage panelInstructionsPage;
