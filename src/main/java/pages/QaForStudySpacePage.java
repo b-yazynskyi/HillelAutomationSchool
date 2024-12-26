@@ -15,17 +15,17 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 @Slf4j
 public class QaForStudySpacePage {
-    private final SelenideElement LOGO_PAGE = $x("//*[@class='header_left d-flex align-items-center']"),
-            SIGN_UP_BUTTON = $x("//*[@class='hero-descriptor_btn btn btn-primary']"),
-            IFRAME_BLOCK = $x("//*[@class='hero-video_frame']"),
-            VIDEO_BLOCK_TITTLE = $x("//*[@class='ytp-title-link yt-uix-sessionlink']"),
-            SOCIAL_LINKS_BLOCK_IN_FOOTER = $x("//div[@class='contacts_socials socials']"),
-            GUEST_LOG_IN_BUTTON = $x("//*[@class='header-link -guest']"),
-            SIGN_IN_BUTTON = $x("//button[@class='btn btn-outline-white header_signin']"),
-            MODAL_EMAIL_INPUT = $x("//input[@id='signinEmail']"),
-            MODAL_PASSWORD_INPUT = $x("//input[@id='signinPassword']"),
-            MODAL_LOGIN_BUTTON = $x("//button[@class='btn btn-primary']"),
-            ERROR_MESSAGE_ON_MODAL = $x("//p[@class='alert alert-danger']");
+    private final SelenideElement LOGO_PAGE = $x("//*[@class='header_left d-flex align-items-center']");
+    private final SelenideElement SIGN_UP_BUTTON = $x("//*[@class='hero-descriptor_btn btn btn-primary']");
+    private final SelenideElement IFRAME_BLOCK = $x("//*[@class='hero-video_frame']");
+    private final SelenideElement VIDEO_BLOCK_TITTLE = $x("//*[@class='ytp-title-link yt-uix-sessionlink']");
+    private final SelenideElement SOCIAL_LINKS_BLOCK_IN_FOOTER = $x("//div[@class='contacts_socials socials']");
+    private final SelenideElement GUEST_LOG_IN_BUTTON = $x("//*[@class='header-link -guest']");
+    private final SelenideElement SIGN_IN_BUTTON = $x("//button[@class='btn btn-outline-white header_signin']");
+    private final SelenideElement MODAL_EMAIL_INPUT = $x("//input[@id='signinEmail']");
+    private final SelenideElement MODAL_PASSWORD_INPUT = $x("//input[@id='signinPassword']");
+    private final SelenideElement MODAL_LOGIN_BUTTON = $x("//button[@class='btn btn-primary']");
+    private final SelenideElement ERROR_MESSAGE_ON_MODAL = $x("//p[@class='alert alert-danger']");
     private final ElementsCollection SOCIAL_LINKS_IN_FOOTER = $$x("//*[@class='socials_link']");
 
     @Step("Click Sign in button")
