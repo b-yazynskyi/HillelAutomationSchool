@@ -5,12 +5,12 @@ target/
 /allure-results/
 /allure-report/
 /build/reports/
-/logs/
+web-hillel-tests/logs/
 /build/downloads/
 /build/files/
 /build/
 /test-result/
-/src/test/java/selenoid/docker/cm
+*/src/test/java/selenoid/docker/cm
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
