@@ -28,5 +28,8 @@ public class AppConfigUtils {
 
         @Key("isHeadless")
         boolean isHeadless();
+
+        @Key("selenoid.remote")
+        String selenoidRemote();
     }
 }
