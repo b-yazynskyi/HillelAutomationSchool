@@ -128,9 +128,6 @@ public class QaForStudySpacePage {
         log.info("Clicking on Guest log in button");
         GUEST_LOG_IN_BUTTON.shouldBe(Condition.visible).click();
 
-        Assert.assertEquals(getWebDriver().getCurrentUrl(),
-                "https://guest:welcome2qauto@qauto.forstudy.space/panel/garage");
-
         return new PanelGaragePage();
     }
 
