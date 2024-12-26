@@ -8,7 +8,7 @@ public class AppConfigUtils {
     public static final IConfig CONFIG;
 
     static {
-        System.setProperty("project", ProjectUtils.project());
+        System.setProperty("project", ProjectUtils.project);
         CONFIG = ConfigFactory.create(IConfig.class);
     }
 
