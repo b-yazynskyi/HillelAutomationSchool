@@ -7,6 +7,7 @@ import listeners.TestRunListener;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 import pages.BaseTest;
+
 import pages.PanelGaragePage;
 import pages.QaForStudySpacePage;
 
@@ -15,6 +16,7 @@ import java.time.LocalDate;
 @Listeners({TestRunListener.class})
 @Feature("Test for Panel Garage page")
 public class PanelGaragePageTest extends BaseTest {
+
     private QaForStudySpacePage qaForStudySpacePage;
     private PanelGaragePage panelGaragePage;
 
