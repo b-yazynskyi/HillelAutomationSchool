@@ -5,7 +5,7 @@ import org.aeonbits.owner.ConfigFactory;
 
 public class AppConfigUtils {
     private static final String PROJECT = "file:./src/main/resources/${project}_config.properties";
-    private static final IConfig CONFIG;
+    public static final IConfig CONFIG;
 
     static {
         System.setProperty("project", ProjectUtils.project());
