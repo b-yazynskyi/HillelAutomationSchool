@@ -15,6 +15,7 @@ public class AppConfigUtils {
     @Config.Sources({PROJECT})
     public interface IConfig extends Config {
         @Key("browser.name")
+        @DefaultValue("chrome")
         String browserName();
 
         @Key("isVNC")
