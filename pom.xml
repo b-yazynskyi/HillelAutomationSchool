@@ -8,10 +8,25 @@
     <artifactId>HillelAutomationQASchool</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <modules>
-        <module>api-hillel-tests</module>
-        <module>web-hillel-tests</module>
-    </modules>
+<!--    <modules>-->
+<!--        <module>api-hillel-tests</module>-->
+<!--        <module>web-hillel-tests</module>-->
+<!--    </modules>-->
+
+    <profiles>
+        <profile>
+            <id>api-hillel-tests</id>
+            <modules>
+                <module>api-hillel-tests</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>web-hillel-tests</id>
+            <modules>
+                <module>web-hillel-tests</module>
+            </modules>
+        </profile>
+    </profiles>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
