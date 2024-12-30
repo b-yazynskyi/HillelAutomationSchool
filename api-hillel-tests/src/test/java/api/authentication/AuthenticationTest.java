@@ -2,6 +2,7 @@ package api.authentication;
 
 import base.BaseTest;
 import clients.AuthClient;
+import io.qameta.allure.*;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -9,7 +10,7 @@ import responses.GetLogOutResponse;
 
 import static utils.JsonUtils.fromJson;
 
-
+@Feature("Route GET /auth/logout")
 public class AuthenticationTest extends BaseTest {
     private AuthClient authClient;
 
@@ -18,7 +19,12 @@ public class AuthenticationTest extends BaseTest {
         authClient = new AuthClient();
     }
 
-    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Assert that logout GET request returns 200 and status: ok")
+    @Owner("Bohdan Yazynskyi")
+    @Test(testName = "logOutTest",
+            description = "Assert that logout GET request returns 200 and status: ok"
+    )
     public void logOutTest() {
         var response = authClient.getLogOut();
 

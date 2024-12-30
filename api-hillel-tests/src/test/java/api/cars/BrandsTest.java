@@ -3,6 +3,7 @@ package api.cars;
 import base.BaseTest;
 import clients.CarClient;
 import com.google.gson.*;
+import io.qameta.allure.*;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -17,6 +18,7 @@ import java.util.Objects;
 
 import static utils.JsonUtils.fromJson;
 
+@Feature("Route GET /cars/brands")
 public class BrandsTest extends BaseTest {
     private CarClient carClient;
 
@@ -25,7 +27,12 @@ public class BrandsTest extends BaseTest {
         carClient = new CarClient();
     }
 
-    @Test
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Assert that GET request to brand returns 200 and brand Audi with id: 1")
+    @Owner("Bohdan Yazynskyi")
+    @Test(testName = "brandTestWithRestAssured",
+            description = "Assert that GET request to brand returns 200 and brand Audi with id: 1"
+    )
     public void brandTestWithRestAssured() {
         var response = carClient.getCarBrands();
         SoftAssert softAssert = new SoftAssert();
