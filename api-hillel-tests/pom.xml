@@ -38,6 +38,18 @@
             <groupId>org.aeonbits.owner</groupId>
             <artifactId>owner</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-assertj</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-bom</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
