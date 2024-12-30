@@ -14,6 +14,7 @@ public class AppConfigUtils {
 
     @Config.Sources({PROJECT})
     public interface IConfig extends Config {
-
+        @Key("base.URI")
+        String baseUri();
     }
 }
