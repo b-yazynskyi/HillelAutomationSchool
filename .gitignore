@@ -2,14 +2,14 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-/allure-results/
+allure-results
 /allure-report/
 /build/reports/
 web-hillel-tests/logs/
 /build/downloads/
 /build/files/
-/build/
-/test-result/
+build
+test-result
 */src/test/java/selenoid/docker/cm
 
 ### IntelliJ IDEA ###
