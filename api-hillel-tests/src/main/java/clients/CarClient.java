@@ -9,6 +9,7 @@ public class CarClient {
     public Response getCarBrands() {
         return given()
                 .header("Content-Type", "application/json")
+                .when()
                 .get("/cars/brands");
     }
 }
