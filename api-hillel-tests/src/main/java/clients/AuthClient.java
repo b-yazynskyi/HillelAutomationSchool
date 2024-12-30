@@ -9,6 +9,7 @@ public class AuthClient {
     public Response getLogOut() {
         return given()
                 .header("Content-Type", "application/json")
+                .when()
                 .get("/auth/logout");
     }
 }
