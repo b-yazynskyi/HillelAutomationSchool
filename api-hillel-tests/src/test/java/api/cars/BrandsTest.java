@@ -29,6 +29,7 @@ public class BrandsTest {
                 .log().all();
     }
 
+    // Ugly implementations, just to make homework :)
     @Test
     public void brandTestWithHttpClient() throws IOException, InterruptedException {
         HttpClient client = HttpClient.newBuilder().build();
