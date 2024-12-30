@@ -13,7 +13,7 @@ public class GetCarBrandsResponse {
     private List<Brand> data;
 
 
-    public class Brand {
+    public static class Brand {
         private int id;
         private String title;
         private String logoFileName;
