@@ -1,0 +1,23 @@
+{
+  "chrome": {
+    "default": "112.0",
+    "versions": {
+      "112.0": {
+        "image": "gromanas/selenoid_chromium_vnc:112.0",
+        "port": "4444",
+        "path": "/",
+        "privileged": true
+      }
+    }
+  },
+  "firefox": {
+    "default": "57.0",
+    "versions": {
+      "57.0": {
+        "image": "selenoid/firefox:88.0",
+        "port": "4444",
+        "path": "/wd/hub"
+      }
+    }
+  }
+}

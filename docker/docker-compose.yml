@@ -1,0 +1,50 @@
+services:
+  jenkins:
+    image: jenkins/jenkins:lts-jdk17
+    container_name: jenkins
+    ports:
+      - "8088:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_data:/var/jenkins_home
+    networks:
+      - automation
+    environment:
+      - JAVA_OPTS="-Djenkins.install.runSetupWizard=true"
+    restart: always
+
+  selenoid:
+    image: aerokube/selenoid:latest-release
+    container_name: selenoid
+    ports:
+      - "4444:4444"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./config:/etc/selenoid:ro
+    command:
+      ["selenoid", "start", "--vnc", "--args", "-limit 10"]
+    privileged: true
+    networks:
+      automation: null
+    restart: always
+
+  selenoid-ui:
+    image: aerokube/selenoid-ui:latest-release
+    container_name: selenoid-ui
+    ports:
+      - "8080:8080"
+    command:
+      ["--selenoid-uri", "http://selenoid:4444"]
+    depends_on:
+      - selenoid
+    networks:
+      - automation
+    restart: always
+
+volumes:
+  jenkins_data:
+
+networks:
+  automation:
+    external:
+      name: automation
