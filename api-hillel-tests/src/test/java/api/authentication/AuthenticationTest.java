@@ -1,18 +1,38 @@
 package api.authentication;
 
-import io.restassured.RestAssured;
+import base.BaseTest;
+import clients.AuthClient;
+import io.qameta.allure.*;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+import responses.GetLogOutResponse;
 
-import static org.hamcrest.Matchers.equalTo;
+import static utils.JsonUtils.fromJson;
 
-public class AuthenticationTest {
+@Feature("Route GET /auth/logout")
+public class AuthenticationTest extends BaseTest {
+    private AuthClient authClient;
 
-    @Test
+    @BeforeClass
+    public void initClients() {
+        authClient = new AuthClient();
+    }
+
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Assert that logout GET request returns 200 and status: ok")
+    @Owner("Bohdan Yazynskyi")
+    @Test(testName = "logOutTest",
+            description = "Assert that logout GET request returns 200 and status: ok"
+    )
     public void logOutTest() {
-        RestAssured.when()
-                .get("https://qauto.forstudy.space/api/auth/logout")
-                .then()
-                .statusCode(200)
-                .body("status", equalTo("ok"));
+        var response = authClient.getLogOut();
+
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(response.statusCode(), 200, "Status code should be 200");
+
+        GetLogOutResponse getLogOutResponse = fromJson(response.getBody().asString(), GetLogOutResponse.class);
+        softAssert.assertEquals(getLogOutResponse.getStatus(), "ok", "Status should be ok");
+        softAssert.assertAll();
     }
 }

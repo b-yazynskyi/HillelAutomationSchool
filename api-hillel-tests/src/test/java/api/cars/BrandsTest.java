@@ -1,32 +1,49 @@
 package api.cars;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import io.restassured.RestAssured;
+import base.BaseTest;
+import clients.CarClient;
+import com.google.gson.*;
+import io.qameta.allure.*;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+import responses.GetCarBrandsResponse;
 
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Objects;
 
-import static org.hamcrest.Matchers.equalTo;
+import static utils.JsonUtils.fromJson;
 
-public class BrandsTest {
+@Feature("Route GET /cars/brands")
+public class BrandsTest extends BaseTest {
+    private CarClient carClient;
 
-    @Test
+    @BeforeClass
+    public void initClients() {
+        carClient = new CarClient();
+    }
+
+    @Severity(SeverityLevel.NORMAL)
+    @Description("Assert that GET request to brand returns 200 and brand Audi with id: 1")
+    @Owner("Bohdan Yazynskyi")
+    @Test(testName = "brandTestWithRestAssured",
+            description = "Assert that GET request to brand returns 200 and brand Audi with id: 1"
+    )
     public void brandTestWithRestAssured() {
-        RestAssured.when()
-                .get("https://qauto.forstudy.space/api/cars/brands")
-                .then()
-                .statusCode(200)
-                .body("data[0].id", equalTo(1))
-                .body("data[0].title", equalTo("Audi"))
-                .log().all();
+        var response = carClient.getCarBrands();
+        SoftAssert softAssert = new SoftAssert();
+
+        softAssert.assertEquals(response.statusCode(), 200, "Status code should be 200");
+
+        GetCarBrandsResponse getCarBrandsResponse = fromJson(response.getBody().asString(), GetCarBrandsResponse.class);
+        var carBrandsList = getCarBrandsResponse.getData();
+
+        softAssert.assertTrue(carBrandsList.stream().anyMatch(elem -> elem.getId() == 1 && Objects.equals(elem.getTitle(), "Audi")));
+        softAssert.assertAll();
     }
 
     // Ugly implementations, just to make homework :)

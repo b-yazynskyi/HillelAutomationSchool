@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="AllApiTests">
+
+    <test name="AllApiTests">
+        <packages>
+            <package name="api.authentication"/>
+            <package name="api.cars"/>
+        </packages>
+    </test>
+
+    <test name="AuthenticationTest">
+        <packages>
+            <package name="api.authentication"/>
+        </packages>
+    </test>
+    <test name="CarsTest">
+        <packages>
+            <package name="api.cars"/>
+        </packages>
+    </test>
+
+</suite>
