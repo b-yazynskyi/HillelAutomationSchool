@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Hillel web tests">
-    <test name="All web tests">
+<suite name="Hillel web tests" parallel="methods" verbose="1">
+    <test name="All web tests" >
         <classes>
             <class name="unit.UtilTest"></class>
             <class name="unit.InstructionNameHelperTest"></class>
