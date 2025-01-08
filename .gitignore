@@ -11,6 +11,7 @@ web-hillel-tests/logs/
 build
 test-result
 */src/test/java/selenoid/docker/cm
+.allure
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
