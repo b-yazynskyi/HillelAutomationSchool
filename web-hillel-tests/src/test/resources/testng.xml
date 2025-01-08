@@ -1,23 +1,13 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-
-<suite name="TestAll">
-
-    <test name="allTests">
-        <packages>
-            <package name="pages.panel_page_tests"/>
-            <package name="pages.qa_for_study_space_page_tests"/>
-        </packages>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Hillel web tests">
+    <test name="All web tests">
+        <classes>
+            <class name="unit.UtilTest"></class>
+            <class name="unit.InstructionNameHelperTest"></class>
+            <class name="pages.panel_page_tests.PanelGaragePageTest"></class>
+            <class name="pages.panel_page_tests.PanelInstructionsPageTest"></class>
+            <class name="pages.qa_for_study_space_page_tests.QaForStudySpacePageTest"></class>
+        </classes>
     </test>
-
-    <test name="PanelPageTest">
-        <packages>
-            <package name="pages.panel_page_tests"/>
-        </packages>
-    </test>
-    <test name="QaForStudySpacePageTest">
-        <packages>
-            <package name="pages.qa_for_study_space_page_tests"/>
-        </packages>
-    </test>
-
 </suite>
