@@ -5,10 +5,13 @@ import com.browserup.bup.proxy.CaptureType;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.FileDownloadMode;
 import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.net.NetworkUtils;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import utils.AppConfigUtils;
 
 import java.util.HashMap;
@@ -19,6 +22,13 @@ import java.util.random.RandomGenerator;
 import static com.codeborne.selenide.Selenide.*;
 
 public abstract class BaseTest {
+
+    @BeforeSuite
+    public void setUpSelenideLogger() {
+        SelenideLogger.addListener("AllureSelenide",
+                new AllureSelenide().screenshots(true).savePageSource(false)
+                );
+    }
 
     @BeforeMethod
     public void initBrowser() {
